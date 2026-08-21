@@ -31,8 +31,11 @@ section {
     <div class="hidden md:flex gap-6 text-sm text-gray-700 dark:text-gray-300">
       <a href="#home" class="hover:text-black dark:hover:text-white">Home</a>
       <a href="#about" class="hover:text-black dark:hover:text-white">About</a>
-      <a href="#skills" class="hover:text-black dark:hover:text-white">Skills</a>
+      <a href="#education" class="hover:text-black dark:hover:text-white">Education</a>
       <a href="#projects" class="hover:text-black dark:hover:text-white">Projects</a>
+      <a href="#skills" class="hover:text-black dark:hover:text-white">Skills</a>
+       <a href="#experiences" class="hover:text-black dark:hover:text-white">Experiences</a>
+      <a href="#chatbot-section" class="hover:text-black dark:hover:text-white">Ask Me</a>
       <a href="#contact" class="hover:text-black dark:hover:text-white">Contact</a>
     </div>
 
@@ -47,8 +50,11 @@ section {
     <div class="flex flex-col px-6 py-3 gap-4 text-sm text-gray-700 dark:text-gray-300">
       <a href="#home" class="py-1 hover:text-black dark:hover:text-white mobile-link">Home</a>
       <a href="#about" class="py-1 hover:text-black dark:hover:text-white mobile-link">About</a>
+      <a href="#education" class="py-1 hover:text-black dark:hover:text-white mobile-link">Education</a>
       <a href="#skills" class="py-1 hover:text-black dark:hover:text-white mobile-link">Skills</a>
+       <a href="#experiences" class="py-1 hover:text-black dark:hover:text-white mobile-link">Experiences</a>
       <a href="#projects" class="py-1 hover:text-black dark:hover:text-white mobile-link">Projects</a>
+      <a href="#chatbot-section" class="py-1 hover:text-black dark:hover:text-white mobile-link">Ask Me</a>
       <a href="#contact" class="py-1 hover:text-black dark:hover:text-white mobile-link">Contact</a>
     </div>
   </div>
@@ -101,6 +107,26 @@ section {
   </p>
 </section>
 
+<!-- EDUCATION -->
+<section id="education" class="max-w-4xl mx-auto px-4 py-10">
+  <h2 class="text-2xl font-bold mb-5">Education</h2>
+
+  <div class="border rounded-lg shadow-sm p-4 flex flex-col sm:flex-row sm:justify-between sm:items-start gap-2">
+    <div>
+      <h3 class="font-semibold text-lg leading-tight">B.Sc. in Computer Science & Engineering</h3>
+      <p class="text-sm text-gray-600 dark:text-gray-400 mt-0.5">
+        <i class="fa-solid fa-graduation-cap mr-1"></i>
+        BGC Trust University, Bangladesh
+      </p>
+    </div>
+
+    <span class="inline-flex items-center gap-1 text-xs font-medium text-gray-600 dark:text-gray-300 bg-gray-50 dark:bg-gray-800 border border-gray-300 dark:border-gray-600 px-3 py-1 rounded-full whitespace-nowrap">
+      <i class="fa-regular fa-calendar"></i>
+      [Year] &ndash; [Year]
+    </span>
+  </div>
+</section>
+
 <!-- SKILLS -->
 <section id="skills" class="max-w-4xl mx-auto px-4 py-10">
   <h2 class="text-2xl font-bold mb-5">Skills</h2>
@@ -118,6 +144,59 @@ section {
     <div class="border p-2 rounded">JWT Auth</div>
     <div class="border p-2 rounded">REST API</div>
     <div class="border p-2 rounded">Git & GitHub</div>
+    <div class="border p-2 rounded">TypeScript</div>
+    <div class="border p-2 rounded">shadcn/ui</div>
+    <div class="border p-2 rounded">PostgreSQL</div>
+    <div class="border p-2 rounded">Prisma</div>
+  </div>
+</section>
+
+<!-- EXPERIENCES -->
+<section id="experiences" class="max-w-4xl mx-auto px-4 py-10">
+  <h2 class="text-2xl font-bold mb-5">Experiences</h2>
+
+  <div class="relative border-l-2 border-gray-300 dark:border-gray-700 pl-6 space-y-8">
+
+    <div class="relative">
+      <span class="absolute -left-[31px] top-1 w-4 h-4 bg-gray-800 dark:bg-white rounded-full border-4 border-white dark:border-gray-900"></span>
+
+      <div class="border rounded-lg shadow-sm overflow-hidden">
+
+        <!-- Header -->
+        <div class="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-2 p-4 bg-gray-50 dark:bg-gray-800/60 border-b dark:border-gray-700">
+          <div>
+            <h3 class="font-semibold text-lg leading-tight">Full Stack Developer Intern</h3>
+            <p class="text-sm text-gray-600 dark:text-gray-400 mt-0.5">
+              <i class="fa-solid fa-building mr-1"></i>
+              [Company Name] &middot; Remote/On-site
+            </p>
+          </div>
+
+          <span class="inline-flex items-center gap-1 text-xs font-medium text-gray-600 dark:text-gray-300 bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-600 px-3 py-1 rounded-full whitespace-nowrap">
+            <i class="fa-regular fa-calendar"></i>
+            Jul 1 &ndash; Aug 15, 2026
+          </span>
+        </div>
+
+        <!-- Body -->
+        <div class="p-4">
+          <p class="text-xs font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-400 mb-2">
+            Tech Stack
+          </p>
+          <div class="flex flex-wrap gap-2">
+            <span class="text-xs font-medium px-3 py-1 rounded-full bg-gray-800 text-white dark:bg-white dark:text-gray-900">Next.js</span>
+            <span class="text-xs font-medium px-3 py-1 rounded-full bg-gray-800 text-white dark:bg-white dark:text-gray-900">React</span>
+            <span class="text-xs font-medium px-3 py-1 rounded-full bg-gray-800 text-white dark:bg-white dark:text-gray-900">TypeScript</span>
+            <span class="text-xs font-medium px-3 py-1 rounded-full bg-gray-800 text-white dark:bg-white dark:text-gray-900">Tailwind CSS</span>
+            <span class="text-xs font-medium px-3 py-1 rounded-full bg-gray-800 text-white dark:bg-white dark:text-gray-900">shadcn/ui</span>
+            <span class="text-xs font-medium px-3 py-1 rounded-full bg-gray-800 text-white dark:bg-white dark:text-gray-900">PostgreSQL</span>
+            <span class="text-xs font-medium px-3 py-1 rounded-full bg-gray-800 text-white dark:bg-white dark:text-gray-900">Prisma</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -211,6 +290,12 @@ section {
   </div>
 </section>
 
+<!-- CHATBOT (inline, above footer) -->
+<section id="chatbot-section" class="max-w-2xl mx-auto px-4 py-10">
+  <h2 class="text-2xl font-bold mb-5 text-center">Ask Me Anything</h2>
+  <div id="chatbotMount"></div>
+</section>
+
 <!-- FOOTER -->
 <footer class="text-center py-6 text-sm text-gray-500">
   © 2026 Nafisha Nowshin Tisha | Full Stack Developer
@@ -235,6 +320,9 @@ section {
     });
   });
 </script>
+
+<!-- CHATBOT (separate file) -->
+<script src="chatbot.js"></script>
 
 </body>
 </html>
