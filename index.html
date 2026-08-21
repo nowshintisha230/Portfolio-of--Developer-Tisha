@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nafisha Nowshin Tisha | Portfolio</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+html { scroll-behavior: smooth; }
+
+/* Fix: sticky navbar height compensate */
+section {
+  scroll-margin-top: 70px;
+}
+</style>
+</head>
+
+<body class="bg-white text-black dark:bg-gray-900 dark:text-white transition">
+
+<!-- NAV -->
+<header class="sticky top-0 bg-white dark:bg-gray-900 shadow z-50">
+  <nav class="max-w-5xl mx-auto flex justify-between items-center p-4">
+    <h1 class="font-bold text-xl text-gray-800 dark:text-white">
+      Tisha
+    </h1>
+
+    <!-- Desktop Menu -->
+    <div class="hidden md:flex gap-6 text-sm text-gray-700 dark:text-gray-300">
+      <a href="#home" class="hover:text-black dark:hover:text-white">Home</a>
+      <a href="#about" class="hover:text-black dark:hover:text-white">About</a>
+      <a href="#education" class="hover:text-black dark:hover:text-white">Education</a>
+      <a href="#projects" class="hover:text-black dark:hover:text-white">Projects</a>
+      <a href="#skills" class="hover:text-black dark:hover:text-white">Skills</a>
+       <a href="#experiences" class="hover:text-black dark:hover:text-white">Experiences</a>
+      <a href="#chatbot-section" class="hover:text-black dark:hover:text-white">Ask Me</a>
+      <a href="#contact" class="hover:text-black dark:hover:text-white">Contact</a>
+    </div>
+
+    <!-- Hamburger Button (Mobile) -->
+    <button id="menuBtn" class="md:hidden text-gray-700 dark:text-gray-300 text-2xl focus:outline-none" aria-label="Toggle menu">
+      <i class="fa-solid fa-bars" id="menuIcon"></i>
+    </button>
+  </nav>
+
+  <!-- Mobile Dropdown Menu -->
+  <div id="mobileMenu" class="hidden md:hidden bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700">
+    <div class="flex flex-col px-6 py-3 gap-4 text-sm text-gray-700 dark:text-gray-300">
+      <a href="#home" class="py-1 hover:text-black dark:hover:text-white mobile-link">Home</a>
+      <a href="#about" class="py-1 hover:text-black dark:hover:text-white mobile-link">About</a>
+      <a href="#education" class="py-1 hover:text-black dark:hover:text-white mobile-link">Education</a>
+      <a href="#skills" class="py-1 hover:text-black dark:hover:text-white mobile-link">Skills</a>
+       <a href="#experiences" class="py-1 hover:text-black dark:hover:text-white mobile-link">Experiences</a>
+      <a href="#projects" class="py-1 hover:text-black dark:hover:text-white mobile-link">Projects</a>
+      <a href="#chatbot-section" class="py-1 hover:text-black dark:hover:text-white mobile-link">Ask Me</a>
+      <a href="#contact" class="py-1 hover:text-black dark:hover:text-white mobile-link">Contact</a>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section id="home" class="text-center py-20 px-4">
+
+  <img src="my-photo.png"
+       alt="Nafisha Nowshin Tisha"
+       class="w-40 h-40 mx-auto rounded-full object-cover border-4 border-gray-700 shadow-lg">
+
+  <h1 class="text-4xl font-bold mt-5">
+    Nafisha Nowshin Tisha
+  </h1>
+
+  <h2 class="text-xl text-gray-600 dark:text-gray-300 mt-2">
+    Full Stack Developer
+  </h2>
+
+  <p class="max-w-xl mx-auto mt-4 text-gray-600 dark:text-gray-300">
+    Passionate full-stack developer focused on building modern, scalable and responsive web applications using MERN stack.
+  </p>
+
+  <div class="mt-6 flex justify-center gap-4 flex-wrap">
+
+    <a href="Resume of Nafisha Nowshin Tisha(Web Developer).pdf" download
+       class="bg-gray-800 hover:bg-black text-white px-5 py-2 rounded inline-flex items-center gap-2">
+      <i class="fa-solid fa-download"></i>
+      Download Resume
+    </a>
+
+    <a href="#contact"
+       class="border border-gray-400 px-5 py-2 rounded hover:bg-gray-100 dark:hover:bg-gray-800">
+      Contact Me
+    </a>
+
+  </div>
+
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="max-w-4xl mx-auto px-4 py-10">
+  <h2 class="text-2xl font-bold mb-3">About Me</h2>
+
+  <p class="text-gray-600 dark:text-gray-300">
+    I am a Computer Science & Engineering student at BGC Trust University, Bangladesh.
+    I specialize in Full stack development and enjoy building real-world applications with authentication,
+    REST APIs, and responsive UI design.
+  </p>
+</section>
+
+<!-- EDUCATION -->
+<section id="education" class="max-w-4xl mx-auto px-4 py-10">
+  <h2 class="text-2xl font-bold mb-5">Education</h2>
+
+  <div class="border rounded-lg shadow-sm p-4 flex flex-col sm:flex-row sm:justify-between sm:items-start gap-2">
+    <div>
+      <h3 class="font-semibold text-lg leading-tight">B.Sc. in Computer Science & Engineering</h3>
+      <p class="text-sm text-gray-600 dark:text-gray-400 mt-0.5">
+        <i class="fa-solid fa-graduation-cap mr-1"></i>
+        BGC Trust University, Bangladesh
+      </p>
+    </div>
+
+    <span class="inline-flex items-center gap-1 text-xs font-medium text-gray-600 dark:text-gray-300 bg-gray-50 dark:bg-gray-800 border border-gray-300 dark:border-gray-600 px-3 py-1 rounded-full whitespace-nowrap">
+      <i class="fa-regular fa-calendar"></i>
+      2024 &ndash; 2027
+    </span>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills" class="max-w-4xl mx-auto px-4 py-10">
+  <h2 class="text-2xl font-bold mb-5">Skills</h2>
+
+  <div class="grid grid-cols-2 md:grid-cols-4 gap-3 text-center text-sm">
+    <div class="border p-2 rounded">HTML</div>
+    <div class="border p-2 rounded">CSS</div>
+    <div class="border p-2 rounded">Tailwind CSS</div>
+    <div class="border p-2 rounded">JavaScript</div>
+    <div class="border p-2 rounded">React.js</div>
+    <div class="border p-2 rounded">Next.js</div>
+    <div class="border p-2 rounded">Node.js</div>
+    <div class="border p-2 rounded">Express.js</div>
+    <div class="border p-2 rounded">MongoDB</div>
+    <div class="border p-2 rounded">JWT Auth</div>
+    <div class="border p-2 rounded">REST API</div>
+    <div class="border p-2 rounded">Git & GitHub</div>
+    <div class="border p-2 rounded">TypeScript</div>
+    <div class="border p-2 rounded">shadcn/ui</div>
+    <div class="border p-2 rounded">PostgreSQL</div>
+    <div class="border p-2 rounded">Prisma</div>
+    <div class="border p-2 rounded">Firebase</div>
+    <div class="border p-2 rounded">Stripe</div>
+    <div class="border p-2 rounded">Mongoose</div>
+    <div class="border p-2 rounded">HeroUI</div>
+    <div class="border p-2 rounded">Recharts</div>
+  </div>
+</section>
+
+<!-- EXPERIENCES -->
+<section id="experiences" class="max-w-4xl mx-auto px-4 py-10">
+  <h2 class="text-2xl font-bold mb-5">Experiences</h2>
+
+  <div class="relative border-l-2 border-gray-300 dark:border-gray-700 pl-6 space-y-8">
+
+    <div class="relative">
+      <span class="absolute -left-[31px] top-1 w-4 h-4 bg-gray-800 dark:bg-white rounded-full border-4 border-white dark:border-gray-900"></span>
+
+      <div class="border rounded-lg shadow-sm overflow-hidden">
+
+        <!-- Header -->
+        <div class="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-2 p-4 bg-gray-50 dark:bg-gray-800/60 border-b dark:border-gray-700">
+          <div>
+            <h3 class="font-semibold text-lg leading-tight">MERN Stack Developer Intern</h3>
+            <p class="text-sm text-gray-600 dark:text-gray-400 mt-0.5">
+              <i class="fa-solid fa-building mr-1"></i>
+              JEVXO &middot; Remote &middot; Internship
+            </p>
+          </div>
+
+          <span class="inline-flex items-center gap-1 text-xs font-medium text-gray-600 dark:text-gray-300 bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-600 px-3 py-1 rounded-full whitespace-nowrap">
+            <i class="fa-regular fa-calendar"></i>
+            Jul 1 &ndash; Aug 15, 2026
+          </span>
+        </div>
+
+        <!-- Body -->
+        <div class="p-4">
+          <p class="text-xs font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-400 mb-2">
+            Tech Stack
+          </p>
+          <div class="flex flex-wrap gap-2">
+            <span class="text-xs font-medium px-3 py-1 rounded-full bg-gray-800 text-white dark:bg-white dark:text-gray-900">Next.js</span>
+            <span class="text-xs font-medium px-3 py-1 rounded-full bg-gray-800 text-white dark:bg-white dark:text-gray-900">React</span>
+            <span class="text-xs font-medium px-3 py-1 rounded-full bg-gray-800 text-white dark:bg-white dark:text-gray-900">TypeScript</span>
+            <span class="text-xs font-medium px-3 py-1 rounded-full bg-gray-800 text-white dark:bg-white dark:text-gray-900">Tailwind CSS</span>
+            <span class="text-xs font-medium px-3 py-1 rounded-full bg-gray-800 text-white dark:bg-white dark:text-gray-900">shadcn/ui</span>
+            <span class="text-xs font-medium px-3 py-1 rounded-full bg-gray-800 text-white dark:bg-white dark:text-gray-900">PostgreSQL</span>
+            <span class="text-xs font-medium px-3 py-1 rounded-full bg-gray-800 text-white dark:bg-white dark:text-gray-900">Prisma</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" class="max-w-5xl mx-auto px-4 py-10">
+  <h2 class="text-2xl font-bold mb-5">Projects</h2>
+
+  <div class="space-y-4">
+
+    <div class="border p-4 rounded">
+      <h3 class="font-semibold">FinSight — Expense Tracker</h3>
+      <p class="text-sm mt-1 text-gray-600 dark:text-gray-300">
+        A simple, fast expense tracking app to log spending, filter by date or category, and visualize where your money goes with an interactive pie chart.
+      </p>
+
+      <div class="flex flex-wrap gap-1.5 mt-2">
+        <span class="text-xs px-2 py-0.5 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300">Next.js</span>
+        <span class="text-xs px-2 py-0.5 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300">TypeScript</span>
+        <span class="text-xs px-2 py-0.5 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300">MongoDB</span>
+        <span class="text-xs px-2 py-0.5 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300">Mongoose</span>
+        <span class="text-xs px-2 py-0.5 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300">HeroUI</span>
+        <span class="text-xs px-2 py-0.5 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300">Recharts</span>
+        <span class="text-xs px-2 py-0.5 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300">Tailwind CSS</span>
+      </div>
+
+      <div class="flex gap-3 mt-3">
+        <a href="https://expense-tracker-iota-wine.vercel.app/"
+           target="_blank"
+           class="bg-blue-600 text-white px-4 py-1 rounded text-sm">
+          Live
+        </a>
+      </div>
+    </div>
+
+    <div class="border p-4 rounded">
+      <h3 class="font-semibold">RentEasy — Property Rental & Booking Platform</h3>
+      <p class="text-sm mt-1 text-gray-600 dark:text-gray-300">
+        Full-stack MERN + Next.js property rental platform with role-based Tenant/Owner/Admin dashboards, Stripe payments, Firebase auth, favorites, bookings, reviews, and an owner analytics dashboard with a 12-month earnings chart.
+      </p>
+
+      <div class="flex flex-wrap gap-1.5 mt-2">
+        <span class="text-xs px-2 py-0.5 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300">Next.js</span>
+        <span class="text-xs px-2 py-0.5 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300">React</span>
+        <span class="text-xs px-2 py-0.5 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300">Node.js</span>
+        <span class="text-xs px-2 py-0.5 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300">Express.js</span>
+        <span class="text-xs px-2 py-0.5 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300">MongoDB</span>
+        <span class="text-xs px-2 py-0.5 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300">Firebase Auth</span>
+        <span class="text-xs px-2 py-0.5 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300">JWT</span>
+        <span class="text-xs px-2 py-0.5 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300">Stripe</span>
+        <span class="text-xs px-2 py-0.5 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300">Tailwind CSS</span>
+      </div>
+
+      <div class="flex flex-wrap gap-3 mt-3">
+        <a href="https://github.com/nowshintisha230/property-rental-client"
+           target="_blank"
+           class="bg-gray-800 text-white px-4 py-1 rounded text-sm">
+          Client Repo
+        </a>
+        <a href="https://github.com/nowshintisha230/property-rental-server"
+           target="_blank"
+           class="bg-gray-800 text-white px-4 py-1 rounded text-sm">
+          Server Repo
+        </a>
+        <a href="https://property-rental-client-kappa.vercel.app/"
+           target="_blank"
+           class="bg-blue-600 text-white px-4 py-1 rounded text-sm">
+          Live
+        </a>
+      </div>
+    </div>
+
+    <div class="border p-4 rounded">
+      <h3 class="font-semibold">TutorHub — Online Tutoring Platform</h3>
+      <p class="text-sm mt-1 text-gray-600 dark:text-gray-300">
+        An online tutoring platform where students can find tutors, book sessions with real-time slot updates, and manage learning schedules — with JWT-protected private routes and a responsive dark/light UI.
+      </p>
+
+      <div class="flex flex-wrap gap-1.5 mt-2">
+        <span class="text-xs px-2 py-0.5 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300">Next.js</span>
+        <span class="text-xs px-2 py-0.5 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300">React</span>
+        <span class="text-xs px-2 py-0.5 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300">Tailwind CSS</span>
+        <span class="text-xs px-2 py-0.5 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300">Node.js</span>
+        <span class="text-xs px-2 py-0.5 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300">Express.js</span>
+        <span class="text-xs px-2 py-0.5 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300">MongoDB Atlas</span>
+        <span class="text-xs px-2 py-0.5 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300">JWT</span>
+      </div>
+
+      <div class="flex flex-wrap gap-3 mt-3">
+        <a href="https://github.com/nowshintisha230/tutorhub"
+           target="_blank"
+           class="bg-gray-800 text-white px-4 py-1 rounded text-sm">
+          Client Repo
+        </a>
+        <a href="https://github.com/nowshintisha230/tutorhub-server"
+           target="_blank"
+           class="bg-gray-800 text-white px-4 py-1 rounded text-sm">
+          Server Repo
+        </a>
+        <a href="https://mediqueue-fawn.vercel.app"
+           target="_blank"
+           class="bg-blue-600 text-white px-4 py-1 rounded text-sm">
+          Live
+        </a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="text-center py-10">
+  <h2 class="text-2xl font-bold">Contact</h2>
+
+  <div class="flex justify-center gap-6 mt-5 text-2xl">
+
+    <a href="https://github.com/nowshintisha230" target="_blank">
+      <i class="fab fa-github"></i>
+    </a>
+
+    <a href="https://www.linkedin.com/in/nafishanowshintisha" target="_blank">
+      <i class="fab fa-linkedin"></i>
+    </a>
+
+    <a href="mailto:nafisatisha230@gmail.com">
+      <i class="fa fa-envelope"></i>
+    </a>
+
+  </div>
+</section>
+
+<!-- CHATBOT (inline, above footer) -->
+<section id="chatbot-section" class="max-w-2xl mx-auto px-4 py-10">
+  <h2 class="text-2xl font-bold mb-5 text-center">Ask Me Anything</h2>
+  <div id="chatbotMount"></div>
+</section>
+
+<!-- FOOTER -->
+<footer class="text-center py-6 text-sm text-gray-500">
+  © 2026 Nafisha Nowshin Tisha | Full Stack Developer
+</footer>
+
+<script>
+  const menuBtn = document.getElementById('menuBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const menuIcon = document.getElementById('menuIcon');
+
+  menuBtn.addEventListener('click', () => {
+    mobileMenu.classList.toggle('hidden');
+    const isOpen = !mobileMenu.classList.contains('hidden');
+    menuIcon.className = isOpen ? 'fa-solid fa-xmark' : 'fa-solid fa-bars';
+  });
+
+  // Close menu when a link is clicked
+  document.querySelectorAll('.mobile-link').forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu.classList.add('hidden');
+      menuIcon.className = 'fa-solid fa-bars';
+    });
+  });
+</script>
+
+<!-- CHATBOT (separate file) -->
+<script src="chatbot.js"></script>
+
+</body>
+</html>
