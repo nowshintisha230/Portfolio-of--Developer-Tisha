@@ -1,11 +1,3 @@
-<<<<<<< HEAD
-=======
-/* =========================================================
-   Portfolio FAQ Chatbot (Inline Version)
-   Renders directly inside <div id="chatbotMount"></div>
-   Just include this file via <script src="chatbot.js"></script>
-   ========================================================= */
->>>>>>> b8f47eedb464d143e1ac326baf2565213baa18fe
 
 (function () {
 
@@ -22,11 +14,7 @@
     <!-- Messages -->
     <div id="chatMessages" class="h-72 overflow-y-auto px-3 py-3 space-y-2 text-sm bg-gray-50 dark:bg-gray-900">
       <div class="bg-gray-200 dark:bg-gray-800 text-gray-800 dark:text-gray-100 px-3 py-2 rounded-lg rounded-bl-none max-w-[85%]">
-<<<<<<< HEAD
         Hi! 👋 I'm a quick FAQ bot for Tisha's portfolio. Ask me about her <b>skills</b>, <b>projects</b> (try "RentEasy", "FinSight" or "TutorHub"), <b>experience</b>, <b>education</b>, or <b>contact</b> info.
-=======
-        Hi! 👋 I'm a quick FAQ bot for Tisha's portfolio. Ask me about her <b>skills</b>, <b>projects</b>, <b>experience</b>, <b>education</b>, or <b>contact</b> info.
->>>>>>> b8f47eedb464d143e1ac326baf2565213baa18fe
       </div>
     </div>
 
@@ -54,7 +42,6 @@
   const faq = [
     {
       keys: ['skill', 'tech', 'stack', 'technology', 'language'],
-<<<<<<< HEAD
       answer: "Tisha works with <b>HTML, CSS, JavaScript, TypeScript, React.js, Next.js, Tailwind CSS, shadcn/ui, HeroUI, Node.js, Express.js, MongoDB, Mongoose, PostgreSQL, Prisma, Firebase, Stripe, Recharts, JWT Auth, REST APIs &amp; Git/GitHub</b>."
     },
     {
@@ -86,20 +73,6 @@
     },
     {
       keys: ['education', 'university', 'degree', 'study', 'college', 'cse', 'bgc'],
-=======
-      answer: "Tisha works with <b>Next.js, React, TypeScript, Tailwind CSS, shadcn/ui, Node.js, Express.js, MongoDB, PostgreSQL, Prisma, JWT Auth & REST APIs</b>."
-    },
-    {
-      keys: ['project', 'work', 'built', 'made', 'portfolio'],
-      answer: "She has built <b>TutorHub</b> (MERN tutoring platform), <b>SummerVibe</b> (product showcase app) and <b>KeenKeeper</b> (Next.js friendship tracker). Check the Projects section for GitHub & live links!"
-    },
-    {
-      keys: ['experience', 'intern', 'internship', 'job', 'career', 'company'],
-      answer: "Tisha worked as a <b>MERN Stack Developer Intern at JEVXO</b> (Jul 1 &ndash; Aug 15, 2026), building features with Next.js, TypeScript, Tailwind, shadcn/ui, PostgreSQL & Prisma."
-    },
-    {
-      keys: ['education', 'university', 'degree', 'study', 'college', 'cse'],
->>>>>>> b8f47eedb464d143e1ac326baf2565213baa18fe
       answer: "She's pursuing a <b>B.Sc. in Computer Science & Engineering</b> at <b>BGC Trust University, Bangladesh</b> (2024 &ndash; 2027)."
     },
     {
@@ -118,11 +91,7 @@
     },
     {
       keys: ['hi', 'hello', 'hey'],
-<<<<<<< HEAD
       answer: "Hey there! 👋 Ask me about Tisha's skills, projects (RentEasy, FinSight, TutorHub), experience, education, or contact info."
-=======
-      answer: "Hey there! 👋 Ask me about Tisha's skills, projects, experience, education, or contact info."
->>>>>>> b8f47eedb464d143e1ac326baf2565213baa18fe
     }
   ];
 
