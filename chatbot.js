@@ -1,4 +1,3 @@
-
 (function () {
 
   // ---------- 1. Widget HTML (inline panel, not floating) ----------
