@@ -1,349 +1,727 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nafisha Nowshin Tisha | Portfolio</title>
+<title>Nafisha Nowshin Tisha | Full Stack Developer</title>
+<meta name="description" content="Portfolio of Nafisha Nowshin Tisha — Full Stack Developer specializing in modern, scalable web applications.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
 <script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          ink: '#0B1730',
+          inksoft: '#4B5875',
+          brand: {
+            50:  '#F5F8FF',
+            100: '#EAF1FF',
+            150: '#DCE8FF',
+            200: '#C6D9FF',
+            300: '#9BB9FA',
+            400: '#5B86F5',
+            500: '#3465EA',
+            600: '#234FE0',
+            700: '#1B3EB8',
+            800: '#152F8C',
+            900: '#0F2266',
+          },
+        },
+        fontFamily: {
+          display: ['Sora', 'sans-serif'],
+          body: ['Inter', 'sans-serif'],
+          mono: ['"JetBrains Mono"', 'monospace'],
+        },
+        boxShadow: {
+          'card': '0 1px 2px rgba(15,34,102,0.04), 0 8px 24px -8px rgba(15,34,102,0.12)',
+          'card-hover': '0 4px 10px rgba(15,34,102,0.06), 0 20px 40px -12px rgba(15,34,102,0.22)',
+        },
+      }
+    }
+  }
+</script>
+
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
-html { scroll-behavior: smooth; }
+  html { scroll-behavior: smooth; }
+  section, header { scroll-margin-top: 84px; }
+  body { font-family: 'Inter', sans-serif; color: #0B1730; background: #FFFFFF; }
+  h1, h2, h3, .font-display { font-family: 'Sora', sans-serif; }
+  .font-mono-ui { font-family: 'JetBrains Mono', monospace; }
 
-/* Fix: sticky navbar height compensate */
-section {
-  scroll-margin-top: 70px;
-}
+  /* faint circuit-dot backdrop */
+  .dot-field {
+    background-image: radial-gradient(rgba(35,79,224,0.14) 1.4px, transparent 1.4px);
+    background-size: 26px 26px;
+  }
+
+  /* reveal-on-scroll */
+  .reveal { opacity: 0; transform: translateY(28px); transition: opacity .7s cubic-bezier(.2,.7,.2,1), transform .7s cubic-bezier(.2,.7,.2,1); }
+  .reveal.show { opacity: 1; transform: translateY(0); }
+  .reveal-delay-1.show { transition-delay: .08s; }
+  .reveal-delay-2.show { transition-delay: .16s; }
+  .reveal-delay-3.show { transition-delay: .24s; }
+  .reveal-delay-4.show { transition-delay: .32s; }
+
+  @keyframes floatY { 0%,100% { transform: translateY(0) rotate(var(--r,0deg)); } 50% { transform: translateY(-14px) rotate(var(--r,0deg)); } }
+  .float-a { animation: floatY 6s ease-in-out infinite; }
+  .float-b { animation: floatY 7.5s ease-in-out infinite; animation-delay: .6s; }
+  .float-c { animation: floatY 5.5s ease-in-out infinite; animation-delay: 1.1s; }
+
+  @keyframes pulseSoft { 0%,100% { opacity:.55; } 50% { opacity: 1; } }
+  .pulse-dot { animation: pulseSoft 2.2s ease-in-out infinite; }
+
+  @keyframes heroGlow { 0%,100% { opacity:.35; transform: scale(1); } 50% { opacity:.55; transform: scale(1.06); } }
+  .hero-glow { animation: heroGlow 8s ease-in-out infinite; }
+
+  ::selection { background: #234FE0; color: #ffffff; }
+
+  /* scrollbar */
+  ::-webkit-scrollbar { width: 10px; }
+  ::-webkit-scrollbar-track { background: #F5F8FF; }
+  ::-webkit-scrollbar-thumb { background: #C6D9FF; border-radius: 999px; }
+  ::-webkit-scrollbar-thumb:hover { background: #9BB9FA; }
+
+  .nav-underline { position: relative; }
+  .nav-underline::after {
+    content: ''; position: absolute; left: 0; bottom: -6px; height: 2px; width: 0%;
+    background: #234FE0; transition: width .25s ease;
+  }
+  .nav-underline:hover::after, .nav-underline.active::after { width: 100%; }
+
+  .card-lift { transition: transform .35s cubic-bezier(.2,.7,.2,1), box-shadow .35s ease, border-color .35s ease; }
+  .card-lift:hover { transform: translateY(-6px); }
+
+  .btn-primary {
+    background: linear-gradient(135deg, #234FE0, #3465EA 55%, #5B86F5);
+    box-shadow: 0 10px 24px -8px rgba(35,79,224,0.55);
+    transition: transform .3s cubic-bezier(.2,.7,.2,1), box-shadow .3s ease, filter .3s ease;
+  }
+  .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 16px 30px -8px rgba(35,79,224,0.6); filter: brightness(1.05); }
+
+  .btn-ghost { transition: all .3s ease; }
+  .btn-ghost:hover { background: #F5F8FF; border-color: #9BB9FA; transform: translateY(-3px); }
+
+  .chip {
+    transition: all .25s ease;
+  }
+  .chip:hover { background: #EAF1FF; border-color: #9BB9FA; transform: translateY(-2px); }
+
+  .skill-card { transition: transform .3s cubic-bezier(.2,.7,.2,1), box-shadow .3s ease, border-color .3s ease; }
+  .skill-card:hover { transform: translateY(-5px) scale(1.02); border-color: #9BB9FA; box-shadow: 0 14px 28px -10px rgba(35,79,224,0.25); }
+
+  .timeline-dot { box-shadow: 0 0 0 5px #EAF1FF; }
+
+  #navbar.scrolled { box-shadow: 0 1px 0 rgba(15,34,102,0.06), 0 12px 30px -18px rgba(15,34,102,0.25); }
+
+  .mockup-window {
+    background: linear-gradient(160deg, #0F2266, #234FE0 55%, #5B86F5);
+  }
+
+  .grad-text {
+    background: linear-gradient(100deg, #0F2266, #234FE0 60%, #3465EA);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .float-a, .float-b, .float-c, .hero-glow, .pulse-dot { animation: none !important; }
+    .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
+  }
 </style>
 </head>
 
-<body class="bg-white text-black dark:bg-gray-900 dark:text-white transition">
+<body class="bg-white text-ink antialiased">
 
-<!-- NAV -->
-<header class="sticky top-0 bg-white dark:bg-gray-900 shadow z-50">
-  <nav class="max-w-5xl mx-auto flex justify-between items-center p-4">
-    <h1 class="font-bold text-xl text-gray-800 dark:text-white">
-      Tisha
-    </h1>
+<!-- ================= NAVBAR ================= -->
+<header id="navbar" class="fixed top-0 inset-x-0 z-50 bg-white/85 backdrop-blur-md transition-shadow duration-300">
+  <nav class="max-w-6xl mx-auto flex justify-between items-center px-5 sm:px-8 py-4">
+    <a href="#home" class="font-display font-bold text-lg tracking-tight text-ink flex items-center gap-2">
+      <span class="w-8 h-8 rounded-lg bg-gradient-to-br from-brand-600 to-brand-400 text-white flex items-center justify-center text-sm font-display">NT</span>
+      <span>Nafisha<span class="text-brand-600">.</span></span>
+    </a>
 
-    <!-- Desktop Menu -->
-    <div class="hidden md:flex gap-6 text-sm text-gray-700 dark:text-gray-300">
-      <a href="#home" class="hover:text-black dark:hover:text-white">Home</a>
-      <a href="#about" class="hover:text-black dark:hover:text-white">About</a>
-      <a href="#education" class="hover:text-black dark:hover:text-white">Education</a>
-      <a href="#projects" class="hover:text-black dark:hover:text-white">Projects</a>
-      <a href="#skills" class="hover:text-black dark:hover:text-white">Skills</a>
-       <a href="#experiences" class="hover:text-black dark:hover:text-white">Experiences</a>
-      <a href="#chatbot-section" class="hover:text-black dark:hover:text-white">Ask Me</a>
-      <a href="#contact" class="hover:text-black dark:hover:text-white">Contact</a>
+    <div class="hidden lg:flex items-center gap-8 text-sm font-medium text-inksoft">
+      <a href="#home" class="nav-underline hover:text-ink">Home</a>
+      <a href="#about" class="nav-underline hover:text-ink">About</a>
+      <a href="#education" class="nav-underline hover:text-ink">Education</a>
+      <a href="#skills" class="nav-underline hover:text-ink">Skills</a>
+      <a href="#experience" class="nav-underline hover:text-ink">Experience</a>
+      <a href="#projects" class="nav-underline hover:text-ink">Projects</a>
+      <a href="#certifications" class="nav-underline hover:text-ink">Certifications</a>
+      <a href="#contact" class="nav-underline hover:text-ink">Contact</a>
     </div>
 
-    <!-- Hamburger Button (Mobile) -->
-    <button id="menuBtn" class="md:hidden text-gray-700 dark:text-gray-300 text-2xl focus:outline-none" aria-label="Toggle menu">
+    <div class="hidden lg:block">
+      <a href="#hireme" class="btn-primary text-white text-sm font-semibold px-5 py-2.5 rounded-full inline-flex items-center gap-2">
+        Hire Me <i class="fa-solid fa-arrow-right text-xs"></i>
+      </a>
+    </div>
+
+    <button id="menuBtn" class="lg:hidden text-ink text-xl w-10 h-10 flex items-center justify-center rounded-lg hover:bg-brand-50" aria-label="Toggle menu" aria-expanded="false">
       <i class="fa-solid fa-bars" id="menuIcon"></i>
     </button>
   </nav>
 
-  <!-- Mobile Dropdown Menu -->
-  <div id="mobileMenu" class="hidden md:hidden bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700">
-    <div class="flex flex-col px-6 py-3 gap-4 text-sm text-gray-700 dark:text-gray-300">
-      <a href="#home" class="py-1 hover:text-black dark:hover:text-white mobile-link">Home</a>
-      <a href="#about" class="py-1 hover:text-black dark:hover:text-white mobile-link">About</a>
-      <a href="#education" class="py-1 hover:text-black dark:hover:text-white mobile-link">Education</a>
-      <a href="#skills" class="py-1 hover:text-black dark:hover:text-white mobile-link">Skills</a>
-       <a href="#experiences" class="py-1 hover:text-black dark:hover:text-white mobile-link">Experiences</a>
-      <a href="#projects" class="py-1 hover:text-black dark:hover:text-white mobile-link">Projects</a>
-      <a href="#chatbot-section" class="py-1 hover:text-black dark:hover:text-white mobile-link">Ask Me</a>
-      <a href="#contact" class="py-1 hover:text-black dark:hover:text-white mobile-link">Contact</a>
+  <!-- Mobile Menu -->
+  <div id="mobileMenu" class="hidden lg:hidden bg-white border-t border-brand-100">
+    <div class="flex flex-col px-6 py-4 gap-1 text-sm font-medium text-inksoft">
+      <a href="#home" class="mobile-link py-2.5 hover:text-brand-600">Home</a>
+      <a href="#about" class="mobile-link py-2.5 hover:text-brand-600">About</a>
+      <a href="#education" class="mobile-link py-2.5 hover:text-brand-600">Education</a>
+      <a href="#skills" class="mobile-link py-2.5 hover:text-brand-600">Skills</a>
+      <a href="#experience" class="mobile-link py-2.5 hover:text-brand-600">Experience</a>
+      <a href="#projects" class="mobile-link py-2.5 hover:text-brand-600">Projects</a>
+      <a href="#certifications" class="mobile-link py-2.5 hover:text-brand-600">Certifications</a>
+      <a href="#contact" class="mobile-link py-2.5 hover:text-brand-600">Contact</a>
+      <a href="#hireme" class="mobile-link mt-2 btn-primary text-white text-center font-semibold px-5 py-2.5 rounded-full">Hire Me</a>
     </div>
   </div>
 </header>
 
-<!-- HERO -->
-<section id="home" class="text-center py-20 px-4">
+<!-- ================= HERO ================= -->
+<section id="home" class="relative pt-36 pb-24 px-5 sm:px-8 overflow-hidden dot-field">
+  <div class="absolute -top-24 -right-24 w-[420px] h-[420px] rounded-full bg-brand-200/50 blur-3xl hero-glow"></div>
+  <div class="absolute -bottom-24 -left-24 w-[360px] h-[360px] rounded-full bg-brand-100 blur-3xl hero-glow" style="animation-delay:2s"></div>
 
-  <img src="my-photo.png"
-       alt="Nafisha Nowshin Tisha"
-       class="w-40 h-40 mx-auto rounded-full object-cover border-4 border-gray-700 shadow-lg">
+  <div class="relative max-w-6xl mx-auto grid lg:grid-cols-[1.1fr_0.9fr] gap-16 items-center">
 
-  <h1 class="text-4xl font-bold mt-5">
-    Nafisha Nowshin Tisha
-  </h1>
+    <!-- Left: text -->
+    <div class="text-center lg:text-left">
+      <span class="inline-flex items-center gap-2 font-mono-ui text-xs text-brand-700 bg-brand-50 border border-brand-150 px-3 py-1.5 rounded-full reveal show">
+        <span class="w-1.5 h-1.5 rounded-full bg-brand-600 pulse-dot"></span>
+        &lt;FullStackDeveloper /&gt;
+      </span>
 
-  <h2 class="text-xl text-gray-600 dark:text-gray-300 mt-2">
-    Full Stack Developer
-  </h2>
+      <h1 class="font-display font-extrabold text-4xl sm:text-5xl xl:text-6xl leading-[1.08] mt-5 text-ink reveal show reveal-delay-1">
+        Nafisha Nowshin<br class="hidden sm:block"> <span class="grad-text">Tisha</span>
+      </h1>
 
-  <p class="max-w-xl mx-auto mt-4 text-gray-600 dark:text-gray-300">
-    Passionate full-stack developer focused on building modern, scalable and responsive web applications using MERN stack.
-  </p>
+      <h2 class="font-mono-ui text-brand-600 text-base sm:text-lg mt-4 reveal show reveal-delay-2">
+        Full Stack Developer
+      </h2>
 
-  <div class="mt-6 flex justify-center gap-4 flex-wrap">
-
-    <a href="Resume of Nafisha Nowshin Tisha(Web Developer).pdf" download
-       class="bg-gray-800 hover:bg-black text-white px-5 py-2 rounded inline-flex items-center gap-2">
-      <i class="fa-solid fa-download"></i>
-      Download Resume
-    </a>
-
-    <a href="#contact"
-       class="border border-gray-400 px-5 py-2 rounded hover:bg-gray-100 dark:hover:bg-gray-800">
-      Contact Me
-    </a>
-
-  </div>
-
-</section>
-
-<!-- ABOUT -->
-<section id="about" class="max-w-4xl mx-auto px-4 py-10">
-  <h2 class="text-2xl font-bold mb-3">About Me</h2>
-
-  <p class="text-gray-600 dark:text-gray-300">
-    I am a Computer Science & Engineering student at BGC Trust University, Bangladesh.
-    I specialize in Full stack development and enjoy building real-world applications with authentication,
-    REST APIs, and responsive UI design.
-  </p>
-</section>
-
-<!-- EDUCATION -->
-<section id="education" class="max-w-4xl mx-auto px-4 py-10">
-  <h2 class="text-2xl font-bold mb-5">Education</h2>
-
-  <div class="border rounded-lg shadow-sm p-4 flex flex-col sm:flex-row sm:justify-between sm:items-start gap-2">
-    <div>
-      <h3 class="font-semibold text-lg leading-tight">B.Sc. in Computer Science & Engineering</h3>
-      <p class="text-sm text-gray-600 dark:text-gray-400 mt-0.5">
-        <i class="fa-solid fa-graduation-cap mr-1"></i>
-        BGC Trust University, Bangladesh
+      <p class="max-w-xl mx-auto lg:mx-0 mt-5 text-inksoft text-base sm:text-lg leading-relaxed reveal show reveal-delay-2">
+        I build modern, scalable and responsive web applications — end to end, from
+        interfaces users enjoy to APIs and databases they can rely on.
       </p>
+
+      <p class="max-w-xl mx-auto lg:mx-0 mt-4 font-mono-ui text-sm sm:text-[15px] text-brand-800 bg-brand-50 border border-brand-150 rounded-xl px-4 py-3 leading-relaxed reveal show reveal-delay-3">
+        <i class="fa-solid fa-sparkles text-brand-500 mr-1.5"></i>
+        Blending full-stack engineering with AI-assisted workflows to design, build and ship products faster — without cutting corners on quality.
+      </p>
+
+      <div class="mt-8 flex flex-wrap justify-center lg:justify-start gap-4 reveal show reveal-delay-3">
+        <a href="Resume of Nafisha Nowshin Tisha(Web Developer).pdf" download
+           class="btn-primary text-white px-6 py-3 rounded-full font-semibold inline-flex items-center gap-2 text-sm">
+          <i class="fa-solid fa-download"></i>
+          Download My Resume
+        </a>
+
+        <a href="#contact"
+           class="btn-ghost border border-brand-200 text-ink px-6 py-3 rounded-full font-semibold inline-flex items-center gap-2 text-sm">
+          Contact Me
+          <i class="fa-solid fa-arrow-right text-xs"></i>
+        </a>
+      </div>
+
+      <div class="mt-8 flex justify-center lg:justify-start gap-5 text-lg text-inksoft reveal show reveal-delay-4">
+        <a href="https://github.com/nowshintisha230" target="_blank" rel="noopener" class="w-10 h-10 rounded-full border border-brand-150 flex items-center justify-center hover:text-brand-600 hover:border-brand-400 transition"><i class="fab fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/nafishanowshintisha" target="_blank" rel="noopener" class="w-10 h-10 rounded-full border border-brand-150 flex items-center justify-center hover:text-brand-600 hover:border-brand-400 transition"><i class="fab fa-linkedin"></i></a>
+        <a href="mailto:nafisatisha230@gmail.com" class="w-10 h-10 rounded-full border border-brand-150 flex items-center justify-center hover:text-brand-600 hover:border-brand-400 transition"><i class="fa-solid fa-envelope"></i></a>
+      </div>
     </div>
 
-    <span class="inline-flex items-center gap-1 text-xs font-medium text-gray-600 dark:text-gray-300 bg-gray-50 dark:bg-gray-800 border border-gray-300 dark:border-gray-600 px-3 py-1 rounded-full whitespace-nowrap">
-      <i class="fa-regular fa-calendar"></i>
-      2024 &ndash; 2027
-    </span>
+    <!-- Right: photo + layered "full stack" signature graphic -->
+    <div class="relative mx-auto w-full max-w-sm aspect-square reveal show reveal-delay-2">
+      <div class="absolute inset-6 sm:inset-10 rounded-[2rem] bg-white border border-brand-150 shadow-card float-c" style="--r:-6deg; transform:rotate(-6deg);">
+        <span class="absolute top-3 left-4 font-mono-ui text-[10px] text-brand-400 tracking-widest">DB</span>
+      </div>
+      <div class="absolute inset-4 sm:inset-8 rounded-[2rem] bg-brand-50 border border-brand-150 shadow-card float-b" style="--r:4deg; transform:rotate(4deg);">
+        <span class="absolute top-3 right-4 font-mono-ui text-[10px] text-brand-500 tracking-widest">API</span>
+      </div>
+
+      <div class="absolute inset-0 rounded-[2rem] overflow-hidden border-4 border-white shadow-card-hover float-a" style="--r:0deg;">
+        <img src="my-photo.png" alt="Nafisha Nowshin Tisha" class="w-full h-full object-cover"
+             onerror="this.style.display='none'; this.parentElement.classList.add('mockup-window'); this.parentElement.innerHTML+='<div class=\'w-full h-full flex items-center justify-center text-white font-display font-bold text-6xl\'>NT</div>';">
+        <span class="absolute bottom-3 left-1/2 -translate-x-1/2 font-mono-ui text-[10px] text-white bg-brand-700/80 backdrop-blur px-3 py-1 rounded-full tracking-widest">UI</span>
+      </div>
+
+      <div class="absolute -right-3 top-6 sm:-right-6 sm:top-10 bg-white border border-brand-150 shadow-card rounded-xl px-3 py-2 flex items-center gap-2 float-b">
+        <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+        <span class="font-mono-ui text-[11px] text-inksoft">Open to work</span>
+      </div>
+      <div class="absolute -left-3 bottom-8 sm:-left-6 sm:bottom-12 bg-white border border-brand-150 shadow-card rounded-xl px-3 py-2 flex items-center gap-2 float-c">
+        <i class="fa-brands fa-react text-brand-600 text-sm"></i>
+        <i class="fa-brands fa-node-js text-brand-600 text-sm"></i>
+        <i class="fa-solid fa-database text-brand-600 text-sm"></i>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- scroll cue -->
+  <div class="hidden sm:flex justify-center mt-16 reveal show reveal-delay-4">
+    <a href="#about" class="text-inksoft/70 hover:text-brand-600 transition flex flex-col items-center gap-1 text-xs font-mono-ui">
+      scroll
+      <i class="fa-solid fa-chevron-down animate-bounce"></i>
+    </a>
   </div>
 </section>
 
-<!-- SKILLS -->
-<section id="skills" class="max-w-4xl mx-auto px-4 py-10">
-  <h2 class="text-2xl font-bold mb-5">Skills</h2>
+<!-- ================= ABOUT ================= -->
+<section id="about" class="py-24 px-5 sm:px-8">
+  <div class="max-w-6xl mx-auto grid lg:grid-cols-[0.9fr_1.1fr] gap-14 items-center">
 
-  <div class="grid grid-cols-2 md:grid-cols-4 gap-3 text-center text-sm">
-    <div class="border p-2 rounded">HTML</div>
-    <div class="border p-2 rounded">CSS</div>
-    <div class="border p-2 rounded">Tailwind CSS</div>
-    <div class="border p-2 rounded">JavaScript</div>
-    <div class="border p-2 rounded">React.js</div>
-    <div class="border p-2 rounded">Next.js</div>
-    <div class="border p-2 rounded">Node.js</div>
-    <div class="border p-2 rounded">Express.js</div>
-    <div class="border p-2 rounded">MongoDB</div>
-    <div class="border p-2 rounded">JWT Auth</div>
-    <div class="border p-2 rounded">REST API</div>
-    <div class="border p-2 rounded">Git & GitHub</div>
-    <div class="border p-2 rounded">TypeScript</div>
-    <div class="border p-2 rounded">shadcn/ui</div>
-    <div class="border p-2 rounded">PostgreSQL</div>
-    <div class="border p-2 rounded">Prisma</div>
-    <div class="border p-2 rounded">Firebase</div>
-    <div class="border p-2 rounded">Stripe</div>
-    <div class="border p-2 rounded">Mongoose</div>
-    <div class="border p-2 rounded">HeroUI</div>
-    <div class="border p-2 rounded">Recharts</div>
+    <div class="reveal">
+      <p class="font-mono-ui text-xs text-brand-600 tracking-widest uppercase mb-3">01 &middot; About</p>
+      <h2 class="font-display font-bold text-3xl sm:text-4xl text-ink mb-6">Who I Am</h2>
+      <p class="text-inksoft text-lg leading-relaxed">
+        I am a Computer Science &amp; Engineering student at BGC Trust University, Bangladesh.
+        I specialize in Full Stack Development and enjoy building real-world applications with
+        authentication, REST APIs, responsive UI design, and modern technologies.
+      </p>
+      <p class="text-inksoft text-lg leading-relaxed mt-4">
+        I care about clean, maintainable code and interfaces that feel effortless — the kind of
+        work that's ready for real users and real recruiters.
+      </p>
+
+      <div class="mt-8 flex flex-wrap gap-3">
+        <span class="chip font-mono-ui text-xs border border-brand-150 bg-brand-50 text-brand-700 px-4 py-2 rounded-full">Chattogram, Bangladesh</span>
+        <span class="chip font-mono-ui text-xs border border-brand-150 bg-brand-50 text-brand-700 px-4 py-2 rounded-full">Open to internships</span>
+        <span class="chip font-mono-ui text-xs border border-brand-150 bg-brand-50 text-brand-700 px-4 py-2 rounded-full">Available for freelance</span>
+      </div>
+    </div>
+
+    <div class="grid sm:grid-cols-2 gap-5 reveal reveal-delay-1">
+      <div class="card-lift bg-white border border-brand-100 shadow-card rounded-2xl p-6">
+        <i class="fa-solid fa-code text-brand-600 text-xl mb-3"></i>
+        <h3 class="font-display font-semibold text-ink mb-1.5">Full Stack Focus</h3>
+        <p class="text-sm text-inksoft leading-relaxed">Comfortable across the stack — from React interfaces to Node/Express APIs and SQL/NoSQL databases.</p>
+      </div>
+      <div class="card-lift bg-white border border-brand-100 shadow-card rounded-2xl p-6">
+        <i class="fa-solid fa-shield-halved text-brand-600 text-xl mb-3"></i>
+        <h3 class="font-display font-semibold text-ink mb-1.5">Secure by Default</h3>
+        <p class="text-sm text-inksoft leading-relaxed">JWT authentication, role-based access and secure API design baked into every project.</p>
+      </div>
+      <div class="card-lift bg-white border border-brand-100 shadow-card rounded-2xl p-6">
+        <i class="fa-solid fa-mobile-screen-button text-brand-600 text-xl mb-3"></i>
+        <h3 class="font-display font-semibold text-ink mb-1.5">Responsive UI</h3>
+        <p class="text-sm text-inksoft leading-relaxed">Interfaces built to work smoothly on desktop, tablet and mobile — no compromises.</p>
+      </div>
+      <div class="card-lift bg-white border border-brand-100 shadow-card rounded-2xl p-6">
+        <i class="fa-solid fa-graduation-cap text-brand-600 text-xl mb-3"></i>
+        <h3 class="font-display font-semibold text-ink mb-1.5">Always Learning</h3>
+        <p class="text-sm text-inksoft leading-relaxed">Currently deepening my CSE foundations while shipping production-style projects.</p>
+      </div>
+    </div>
+
   </div>
 </section>
 
-<!-- EXPERIENCES -->
-<section id="experiences" class="max-w-4xl mx-auto px-4 py-10">
-  <h2 class="text-2xl font-bold mb-5">Experiences</h2>
+<!-- ================= EDUCATION ================= -->
+<section id="education" class="py-24 px-5 sm:px-8 bg-brand-50/60">
+  <div class="max-w-4xl mx-auto">
+    <p class="font-mono-ui text-xs text-brand-600 tracking-widest uppercase mb-3 text-center reveal">02 &middot; Education</p>
+    <h2 class="font-display font-bold text-3xl sm:text-4xl text-ink mb-12 text-center reveal">Academic Background</h2>
 
-  <div class="relative border-l-2 border-gray-300 dark:border-gray-700 pl-6 space-y-8">
+    <div class="relative pl-10 reveal reveal-delay-1">
+      <div class="absolute left-[9px] top-2 bottom-2 w-0.5 bg-brand-150"></div>
 
-    <div class="relative">
-      <span class="absolute -left-[31px] top-1 w-4 h-4 bg-gray-800 dark:bg-white rounded-full border-4 border-white dark:border-gray-900"></span>
+      <div class="relative">
+        <span class="absolute -left-10 top-6 w-4 h-4 rounded-full bg-brand-600 timeline-dot"></span>
 
-      <div class="border rounded-lg shadow-sm overflow-hidden">
-
-        <!-- Header -->
-        <div class="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-2 p-4 bg-gray-50 dark:bg-gray-800/60 border-b dark:border-gray-700">
+        <div class="card-lift bg-white border border-brand-100 shadow-card rounded-2xl p-6 sm:p-8 flex flex-col sm:flex-row sm:justify-between sm:items-start gap-4">
           <div>
-            <h3 class="font-semibold text-lg leading-tight">MERN Stack Developer Intern</h3>
-            <p class="text-sm text-gray-600 dark:text-gray-400 mt-0.5">
-              <i class="fa-solid fa-building mr-1"></i>
-              JEVXO &middot; Remote &middot; Internship
+            <h3 class="font-display font-semibold text-lg sm:text-xl text-ink">B.Sc. in Computer Science &amp; Engineering</h3>
+            <p class="text-sm text-inksoft mt-1.5 flex items-center gap-2">
+              <i class="fa-solid fa-graduation-cap text-brand-500"></i>
+              BGC Trust University, Bangladesh
             </p>
           </div>
-
-          <span class="inline-flex items-center gap-1 text-xs font-medium text-gray-600 dark:text-gray-300 bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-600 px-3 py-1 rounded-full whitespace-nowrap">
+          <span class="font-mono-ui inline-flex items-center gap-2 text-xs font-medium text-brand-700 bg-brand-50 border border-brand-150 px-4 py-1.5 rounded-full whitespace-nowrap">
             <i class="fa-regular fa-calendar"></i>
-            Jul 1 &ndash; Aug 15, 2026
+            2024 &ndash; 2027
           </span>
         </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-        <!-- Body -->
-        <div class="p-4">
-          <p class="text-xs font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-400 mb-2">
-            Tech Stack
-          </p>
-          <div class="flex flex-wrap gap-2">
-            <span class="text-xs font-medium px-3 py-1 rounded-full bg-gray-800 text-white dark:bg-white dark:text-gray-900">Next.js</span>
-            <span class="text-xs font-medium px-3 py-1 rounded-full bg-gray-800 text-white dark:bg-white dark:text-gray-900">React</span>
-            <span class="text-xs font-medium px-3 py-1 rounded-full bg-gray-800 text-white dark:bg-white dark:text-gray-900">TypeScript</span>
-            <span class="text-xs font-medium px-3 py-1 rounded-full bg-gray-800 text-white dark:bg-white dark:text-gray-900">Tailwind CSS</span>
-            <span class="text-xs font-medium px-3 py-1 rounded-full bg-gray-800 text-white dark:bg-white dark:text-gray-900">shadcn/ui</span>
-            <span class="text-xs font-medium px-3 py-1 rounded-full bg-gray-800 text-white dark:bg-white dark:text-gray-900">PostgreSQL</span>
-            <span class="text-xs font-medium px-3 py-1 rounded-full bg-gray-800 text-white dark:bg-white dark:text-gray-900">Prisma</span>
-          </div>
+<!-- ================= SKILLS ================= -->
+<section id="skills" class="py-24 px-5 sm:px-8">
+  <div class="max-w-6xl mx-auto">
+    <p class="font-mono-ui text-xs text-brand-600 tracking-widest uppercase mb-3 text-center reveal">03 &middot; Skills</p>
+    <h2 class="font-display font-bold text-3xl sm:text-4xl text-ink mb-14 text-center reveal">Tools &amp; Technologies</h2>
+
+    <div class="grid md:grid-cols-2 gap-6 mb-6">
+      <div class="reveal">
+        <h3 class="font-display font-semibold text-ink mb-4 flex items-center gap-2"><i class="fa-solid fa-display text-brand-600"></i> Frontend</h3>
+        <div class="grid grid-cols-3 sm:grid-cols-4 gap-3">
+          <div class="skill-card bg-white border border-brand-100 shadow-card rounded-xl py-4 text-center text-xs font-medium text-inksoft">HTML</div>
+          <div class="skill-card bg-white border border-brand-100 shadow-card rounded-xl py-4 text-center text-xs font-medium text-inksoft">CSS</div>
+          <div class="skill-card bg-white border border-brand-100 shadow-card rounded-xl py-4 text-center text-xs font-medium text-inksoft">Tailwind CSS</div>
+          <div class="skill-card bg-white border border-brand-100 shadow-card rounded-xl py-4 text-center text-xs font-medium text-inksoft">JavaScript</div>
+          <div class="skill-card bg-white border border-brand-100 shadow-card rounded-xl py-4 text-center text-xs font-medium text-inksoft">TypeScript</div>
+          <div class="skill-card bg-white border border-brand-100 shadow-card rounded-xl py-4 text-center text-xs font-medium text-inksoft">React.js</div>
+          <div class="skill-card bg-white border border-brand-100 shadow-card rounded-xl py-4 text-center text-xs font-medium text-inksoft">Next.js</div>
+          <div class="skill-card bg-white border border-brand-100 shadow-card rounded-xl py-4 text-center text-xs font-medium text-inksoft">shadcn/ui</div>
+          <div class="skill-card bg-white border border-brand-100 shadow-card rounded-xl py-4 text-center text-xs font-medium text-inksoft">HeroUI</div>
+          <div class="skill-card bg-white border border-brand-100 shadow-card rounded-xl py-4 text-center text-xs font-medium text-inksoft">Recharts</div>
+        </div>
+      </div>
+
+      <div class="reveal reveal-delay-1">
+        <h3 class="font-display font-semibold text-ink mb-4 flex items-center gap-2"><i class="fa-solid fa-server text-brand-600"></i> Backend</h3>
+        <div class="grid grid-cols-2 sm:grid-cols-2 gap-3">
+          <div class="skill-card bg-white border border-brand-100 shadow-card rounded-xl py-4 text-center text-xs font-medium text-inksoft">Node.js</div>
+          <div class="skill-card bg-white border border-brand-100 shadow-card rounded-xl py-4 text-center text-xs font-medium text-inksoft">Express.js</div>
+          <div class="skill-card bg-white border border-brand-100 shadow-card rounded-xl py-4 text-center text-xs font-medium text-inksoft">REST API</div>
+          <div class="skill-card bg-white border border-brand-100 shadow-card rounded-xl py-4 text-center text-xs font-medium text-inksoft">JWT Auth</div>
         </div>
 
+        <h3 class="font-display font-semibold text-ink mb-4 mt-8 flex items-center gap-2"><i class="fa-solid fa-database text-brand-600"></i> Database</h3>
+        <div class="grid grid-cols-2 gap-3">
+          <div class="skill-card bg-white border border-brand-100 shadow-card rounded-xl py-4 text-center text-xs font-medium text-inksoft">MongoDB</div>
+          <div class="skill-card bg-white border border-brand-100 shadow-card rounded-xl py-4 text-center text-xs font-medium text-inksoft">Mongoose</div>
+          <div class="skill-card bg-white border border-brand-100 shadow-card rounded-xl py-4 text-center text-xs font-medium text-inksoft">PostgreSQL</div>
+          <div class="skill-card bg-white border border-brand-100 shadow-card rounded-xl py-4 text-center text-xs font-medium text-inksoft">Prisma</div>
+        </div>
       </div>
     </div>
 
+    <div class="reveal reveal-delay-2">
+      <h3 class="font-display font-semibold text-ink mb-4 flex items-center gap-2"><i class="fa-solid fa-toolbox text-brand-600"></i> Tools &amp; Services</h3>
+      <div class="grid grid-cols-3 sm:grid-cols-6 gap-3">
+        <div class="skill-card bg-white border border-brand-100 shadow-card rounded-xl py-4 text-center text-xs font-medium text-inksoft">Git</div>
+        <div class="skill-card bg-white border border-brand-100 shadow-card rounded-xl py-4 text-center text-xs font-medium text-inksoft">GitHub</div>
+        <div class="skill-card bg-white border border-brand-100 shadow-card rounded-xl py-4 text-center text-xs font-medium text-inksoft">Firebase</div>
+        <div class="skill-card bg-white border border-brand-100 shadow-card rounded-xl py-4 text-center text-xs font-medium text-inksoft">Stripe</div>
+      </div>
+    </div>
   </div>
 </section>
 
-<!-- PROJECTS -->
-<section id="projects" class="max-w-5xl mx-auto px-4 py-10">
-  <h2 class="text-2xl font-bold mb-5">Projects</h2>
+<!-- ================= EXPERIENCE ================= -->
+<section id="experience" class="py-24 px-5 sm:px-8 bg-brand-50/60">
+  <div class="max-w-4xl mx-auto">
+    <p class="font-mono-ui text-xs text-brand-600 tracking-widest uppercase mb-3 text-center reveal">04 &middot; Experience</p>
+    <h2 class="font-display font-bold text-3xl sm:text-4xl text-ink mb-12 text-center reveal">Work Experience</h2>
 
-  <div class="space-y-4">
+    <div class="relative pl-10 reveal reveal-delay-1">
+      <div class="absolute left-[9px] top-2 bottom-2 w-0.5 bg-brand-150"></div>
 
-    <div class="border p-4 rounded">
-      <h3 class="font-semibold">FinSight — Expense Tracker</h3>
-      <p class="text-sm mt-1 text-gray-600 dark:text-gray-300">
-        A simple, fast expense tracking app to log spending, filter by date or category, and visualize where your money goes with an interactive pie chart.
-      </p>
+      <div class="relative">
+        <span class="absolute -left-10 top-6 w-4 h-4 rounded-full bg-brand-600 timeline-dot"></span>
 
-      <div class="flex flex-wrap gap-1.5 mt-2">
-        <span class="text-xs px-2 py-0.5 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300">Next.js</span>
-        <span class="text-xs px-2 py-0.5 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300">TypeScript</span>
-        <span class="text-xs px-2 py-0.5 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300">MongoDB</span>
-        <span class="text-xs px-2 py-0.5 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300">Mongoose</span>
-        <span class="text-xs px-2 py-0.5 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300">HeroUI</span>
-        <span class="text-xs px-2 py-0.5 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300">Recharts</span>
-        <span class="text-xs px-2 py-0.5 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300">Tailwind CSS</span>
-      </div>
+        <div class="card-lift bg-white border border-brand-100 shadow-card rounded-2xl overflow-hidden">
+          <div class="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-3 p-6 sm:p-8 border-b border-brand-100">
+            <div>
+              <h3 class="font-display font-semibold text-lg sm:text-xl text-ink">MERN Stack Developer Intern</h3>
+              <p class="text-sm text-inksoft mt-1.5 flex items-center gap-2">
+                <i class="fa-solid fa-building text-brand-500"></i>
+                JEVXO &middot; Remote &middot; Internship
+              </p>
+            </div>
+            <span class="font-mono-ui inline-flex items-center gap-2 text-xs font-medium text-brand-700 bg-brand-50 border border-brand-150 px-4 py-1.5 rounded-full whitespace-nowrap">
+              <i class="fa-regular fa-calendar"></i>
+              Jul 1 &ndash; Aug 15, 2026
+            </span>
+          </div>
 
-      <div class="flex gap-3 mt-3">
-        <a href="https://expense-tracker-iota-wine.vercel.app/"
-           target="_blank"
-           class="bg-blue-600 text-white px-4 py-1 rounded text-sm">
-          Live
-        </a>
-      </div>
-    </div>
-
-    <div class="border p-4 rounded">
-      <h3 class="font-semibold">RentEasy — Property Rental & Booking Platform</h3>
-      <p class="text-sm mt-1 text-gray-600 dark:text-gray-300">
-        Full-stack MERN + Next.js property rental platform with role-based Tenant/Owner/Admin dashboards, Stripe payments, Firebase auth, favorites, bookings, reviews, and an owner analytics dashboard with a 12-month earnings chart.
-      </p>
-
-      <div class="flex flex-wrap gap-1.5 mt-2">
-        <span class="text-xs px-2 py-0.5 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300">Next.js</span>
-        <span class="text-xs px-2 py-0.5 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300">React</span>
-        <span class="text-xs px-2 py-0.5 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300">Node.js</span>
-        <span class="text-xs px-2 py-0.5 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300">Express.js</span>
-        <span class="text-xs px-2 py-0.5 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300">MongoDB</span>
-        <span class="text-xs px-2 py-0.5 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300">Firebase Auth</span>
-        <span class="text-xs px-2 py-0.5 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300">JWT</span>
-        <span class="text-xs px-2 py-0.5 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300">Stripe</span>
-        <span class="text-xs px-2 py-0.5 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300">Tailwind CSS</span>
-      </div>
-
-      <div class="flex flex-wrap gap-3 mt-3">
-        <a href="https://github.com/nowshintisha230/property-rental-client"
-           target="_blank"
-           class="bg-gray-800 text-white px-4 py-1 rounded text-sm">
-          Client Repo
-        </a>
-        <a href="https://github.com/nowshintisha230/property-rental-server"
-           target="_blank"
-           class="bg-gray-800 text-white px-4 py-1 rounded text-sm">
-          Server Repo
-        </a>
-        <a href="https://property-rental-client-kappa.vercel.app/"
-           target="_blank"
-           class="bg-blue-600 text-white px-4 py-1 rounded text-sm">
-          Live
-        </a>
+          <div class="p-6 sm:p-8">
+            <p class="text-xs font-mono-ui uppercase tracking-wide text-inksoft/70 mb-3">Tech Stack</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="chip text-xs font-medium px-3.5 py-1.5 rounded-full bg-brand-600 text-white">Next.js</span>
+              <span class="chip text-xs font-medium px-3.5 py-1.5 rounded-full bg-brand-600 text-white">React</span>
+              <span class="chip text-xs font-medium px-3.5 py-1.5 rounded-full bg-brand-600 text-white">TypeScript</span>
+              <span class="chip text-xs font-medium px-3.5 py-1.5 rounded-full bg-brand-600 text-white">Tailwind CSS</span>
+              <span class="chip text-xs font-medium px-3.5 py-1.5 rounded-full bg-brand-600 text-white">shadcn/ui</span>
+              <span class="chip text-xs font-medium px-3.5 py-1.5 rounded-full bg-brand-600 text-white">PostgreSQL</span>
+              <span class="chip text-xs font-medium px-3.5 py-1.5 rounded-full bg-brand-600 text-white">Prisma</span>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-
-    <div class="border p-4 rounded">
-      <h3 class="font-semibold">TutorHub — Online Tutoring Platform</h3>
-      <p class="text-sm mt-1 text-gray-600 dark:text-gray-300">
-        An online tutoring platform where students can find tutors, book sessions with real-time slot updates, and manage learning schedules — with JWT-protected private routes and a responsive dark/light UI.
-      </p>
-
-      <div class="flex flex-wrap gap-1.5 mt-2">
-        <span class="text-xs px-2 py-0.5 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300">Next.js</span>
-        <span class="text-xs px-2 py-0.5 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300">React</span>
-        <span class="text-xs px-2 py-0.5 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300">Tailwind CSS</span>
-        <span class="text-xs px-2 py-0.5 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300">Node.js</span>
-        <span class="text-xs px-2 py-0.5 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300">Express.js</span>
-        <span class="text-xs px-2 py-0.5 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300">MongoDB Atlas</span>
-        <span class="text-xs px-2 py-0.5 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300">JWT</span>
-      </div>
-
-      <div class="flex flex-wrap gap-3 mt-3">
-        <a href="https://github.com/nowshintisha230/tutorhub"
-           target="_blank"
-           class="bg-gray-800 text-white px-4 py-1 rounded text-sm">
-          Client Repo
-        </a>
-        <a href="https://github.com/nowshintisha230/tutorhub-server"
-           target="_blank"
-           class="bg-gray-800 text-white px-4 py-1 rounded text-sm">
-          Server Repo
-        </a>
-        <a href="https://mediqueue-fawn.vercel.app"
-           target="_blank"
-           class="bg-blue-600 text-white px-4 py-1 rounded text-sm">
-          Live
-        </a>
-      </div>
-    </div>
-
   </div>
 </section>
 
-<!-- CONTACT -->
-<section id="contact" class="text-center py-10">
-  <h2 class="text-2xl font-bold">Contact</h2>
+<!-- ================= PROJECTS ================= -->
+<section id="projects" class="py-24 px-5 sm:px-8">
+  <div class="max-w-6xl mx-auto">
+    <p class="font-mono-ui text-xs text-brand-600 tracking-widest uppercase mb-3 text-center reveal">05 &middot; Projects</p>
+    <h2 class="font-display font-bold text-3xl sm:text-4xl text-ink mb-4 text-center reveal">Selected Projects</h2>
+    <p class="text-inksoft text-center max-w-xl mx-auto mb-14 reveal reveal-delay-1">A few projects that show how I think about product, architecture and polish.</p>
 
-  <div class="flex justify-center gap-6 mt-5 text-2xl">
+    <div class="grid md:grid-cols-2 gap-8">
 
-    <a href="https://github.com/nowshintisha230" target="_blank">
-      <i class="fab fa-github"></i>
-    </a>
+      <!-- FinSight -->
+      <article class="card-lift reveal group bg-white border border-brand-100 shadow-card hover:shadow-card-hover rounded-2xl overflow-hidden md:col-span-2">
+        <div class="grid sm:grid-cols-[1.1fr_1fr]">
+          <div class="mockup-window relative p-6 sm:p-8 flex flex-col justify-between min-h-[220px]">
+            <div class="flex gap-1.5">
+              <span class="w-2.5 h-2.5 rounded-full bg-white/40"></span>
+              <span class="w-2.5 h-2.5 rounded-full bg-white/40"></span>
+              <span class="w-2.5 h-2.5 rounded-full bg-white/40"></span>
+            </div>
+            <div class="text-white">
+              <i class="fa-solid fa-chart-pie text-4xl opacity-90"></i>
+              <p class="font-mono-ui text-xs mt-3 text-white/70">expense-tracker-iota-wine.vercel.app</p>
+            </div>
+          </div>
+          <div class="p-6 sm:p-8">
+            <h3 class="font-display font-semibold text-xl text-ink mb-2">FinSight — Expense Tracker</h3>
+            <p class="text-sm text-inksoft leading-relaxed mb-4">
+              A simple, fast expense tracking app to log spending, filter by date or category, and visualize where money goes with an interactive pie chart.
+            </p>
+            <div class="flex flex-wrap gap-1.5 mb-5">
+              <span class="text-xs px-2.5 py-1 rounded-full bg-brand-50 text-brand-700 border border-brand-150">Next.js</span>
+              <span class="text-xs px-2.5 py-1 rounded-full bg-brand-50 text-brand-700 border border-brand-150">TypeScript</span>
+              <span class="text-xs px-2.5 py-1 rounded-full bg-brand-50 text-brand-700 border border-brand-150">MongoDB</span>
+              <span class="text-xs px-2.5 py-1 rounded-full bg-brand-50 text-brand-700 border border-brand-150">Mongoose</span>
+              <span class="text-xs px-2.5 py-1 rounded-full bg-brand-50 text-brand-700 border border-brand-150">HeroUI</span>
+              <span class="text-xs px-2.5 py-1 rounded-full bg-brand-50 text-brand-700 border border-brand-150">Recharts</span>
+              <span class="text-xs px-2.5 py-1 rounded-full bg-brand-50 text-brand-700 border border-brand-150">Tailwind CSS</span>
+            </div>
+            <a href="https://expense-tracker-iota-wine.vercel.app/" target="_blank" rel="noopener"
+               class="btn-primary inline-flex items-center gap-2 text-white text-sm font-semibold px-5 py-2.5 rounded-full">
+              Live Demo <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+            </a>
+          </div>
+        </div>
+      </article>
 
-    <a href="https://www.linkedin.com/in/nafishanowshintisha" target="_blank">
-      <i class="fab fa-linkedin"></i>
-    </a>
+      <!-- RentEasy -->
+      <article class="card-lift reveal reveal-delay-1 group bg-white border border-brand-100 shadow-card hover:shadow-card-hover rounded-2xl overflow-hidden flex flex-col">
+        <div class="mockup-window relative p-6 flex flex-col justify-between min-h-[160px]">
+          <div class="flex gap-1.5">
+            <span class="w-2.5 h-2.5 rounded-full bg-white/40"></span>
+            <span class="w-2.5 h-2.5 rounded-full bg-white/40"></span>
+            <span class="w-2.5 h-2.5 rounded-full bg-white/40"></span>
+          </div>
+          <i class="fa-solid fa-building-user text-4xl text-white/90"></i>
+        </div>
+        <div class="p-6 sm:p-7 flex flex-col flex-1">
+          <h3 class="font-display font-semibold text-xl text-ink mb-2">RentEasy</h3>
+          <p class="text-xs font-mono-ui text-brand-600 mb-2">Property Rental &amp; Booking Platform</p>
+          <p class="text-sm text-inksoft leading-relaxed mb-4">
+            Full-stack MERN + Next.js rental platform with role-based Tenant/Owner/Admin dashboards, Stripe payments, Firebase auth, favorites, bookings, reviews, and an owner analytics dashboard with a 12-month earnings chart.
+          </p>
+          <div class="flex flex-wrap gap-1.5 mb-5">
+            <span class="text-xs px-2.5 py-1 rounded-full bg-brand-50 text-brand-700 border border-brand-150">Next.js</span>
+            <span class="text-xs px-2.5 py-1 rounded-full bg-brand-50 text-brand-700 border border-brand-150">React</span>
+            <span class="text-xs px-2.5 py-1 rounded-full bg-brand-50 text-brand-700 border border-brand-150">Node.js</span>
+            <span class="text-xs px-2.5 py-1 rounded-full bg-brand-50 text-brand-700 border border-brand-150">Express.js</span>
+            <span class="text-xs px-2.5 py-1 rounded-full bg-brand-50 text-brand-700 border border-brand-150">MongoDB</span>
+            <span class="text-xs px-2.5 py-1 rounded-full bg-brand-50 text-brand-700 border border-brand-150">Firebase Auth</span>
+            <span class="text-xs px-2.5 py-1 rounded-full bg-brand-50 text-brand-700 border border-brand-150">JWT</span>
+            <span class="text-xs px-2.5 py-1 rounded-full bg-brand-50 text-brand-700 border border-brand-150">Stripe</span>
+            <span class="text-xs px-2.5 py-1 rounded-full bg-brand-50 text-brand-700 border border-brand-150">Tailwind CSS</span>
+          </div>
+          <div class="mt-auto flex flex-wrap gap-2.5">
+            <a href="https://github.com/nowshintisha230/property-rental-client" target="_blank" rel="noopener"
+               class="btn-ghost border border-brand-150 text-ink text-xs font-semibold px-4 py-2 rounded-full inline-flex items-center gap-1.5"><i class="fa-brands fa-github"></i> Client</a>
+            <a href="https://github.com/nowshintisha230/property-rental-server" target="_blank" rel="noopener"
+               class="btn-ghost border border-brand-150 text-ink text-xs font-semibold px-4 py-2 rounded-full inline-flex items-center gap-1.5"><i class="fa-brands fa-github"></i> Server</a>
+            <a href="https://property-rental-client-kappa.vercel.app/" target="_blank" rel="noopener"
+               class="btn-primary text-white text-xs font-semibold px-4 py-2 rounded-full inline-flex items-center gap-1.5">Live Demo <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i></a>
+          </div>
+        </div>
+      </article>
 
-    <a href="mailto:nafisatisha230@gmail.com">
-      <i class="fa fa-envelope"></i>
-    </a>
+      <!-- TutorHub -->
+      <article class="card-lift reveal reveal-delay-2 group bg-white border border-brand-100 shadow-card hover:shadow-card-hover rounded-2xl overflow-hidden flex flex-col">
+        <div class="mockup-window relative p-6 flex flex-col justify-between min-h-[160px]">
+          <div class="flex gap-1.5">
+            <span class="w-2.5 h-2.5 rounded-full bg-white/40"></span>
+            <span class="w-2.5 h-2.5 rounded-full bg-white/40"></span>
+            <span class="w-2.5 h-2.5 rounded-full bg-white/40"></span>
+          </div>
+          <i class="fa-solid fa-chalkboard-user text-4xl text-white/90"></i>
+        </div>
+        <div class="p-6 sm:p-7 flex flex-col flex-1">
+          <h3 class="font-display font-semibold text-xl text-ink mb-2">TutorHub</h3>
+          <p class="text-xs font-mono-ui text-brand-600 mb-2">Online Tutoring Platform</p>
+          <p class="text-sm text-inksoft leading-relaxed mb-4">
+            An online tutoring platform where students can find tutors, book sessions with real-time slot updates, and manage learning schedules, with JWT-protected private routes and a responsive UI.
+          </p>
+          <div class="flex flex-wrap gap-1.5 mb-5">
+            <span class="text-xs px-2.5 py-1 rounded-full bg-brand-50 text-brand-700 border border-brand-150">Next.js</span>
+            <span class="text-xs px-2.5 py-1 rounded-full bg-brand-50 text-brand-700 border border-brand-150">React</span>
+            <span class="text-xs px-2.5 py-1 rounded-full bg-brand-50 text-brand-700 border border-brand-150">Tailwind CSS</span>
+            <span class="text-xs px-2.5 py-1 rounded-full bg-brand-50 text-brand-700 border border-brand-150">Node.js</span>
+            <span class="text-xs px-2.5 py-1 rounded-full bg-brand-50 text-brand-700 border border-brand-150">Express.js</span>
+            <span class="text-xs px-2.5 py-1 rounded-full bg-brand-50 text-brand-700 border border-brand-150">MongoDB Atlas</span>
+            <span class="text-xs px-2.5 py-1 rounded-full bg-brand-50 text-brand-700 border border-brand-150">JWT</span>
+          </div>
+          <div class="mt-auto flex flex-wrap gap-2.5">
+            <a href="https://github.com/nowshintisha230/tutorhub" target="_blank" rel="noopener"
+               class="btn-ghost border border-brand-150 text-ink text-xs font-semibold px-4 py-2 rounded-full inline-flex items-center gap-1.5"><i class="fa-brands fa-github"></i> Client</a>
+            <a href="https://github.com/nowshintisha230/tutorhub-server" target="_blank" rel="noopener"
+               class="btn-ghost border border-brand-150 text-ink text-xs font-semibold px-4 py-2 rounded-full inline-flex items-center gap-1.5"><i class="fa-brands fa-github"></i> Server</a>
+            <a href="https://mediqueue-fawn.vercel.app" target="_blank" rel="noopener"
+               class="btn-primary text-white text-xs font-semibold px-4 py-2 rounded-full inline-flex items-center gap-1.5">Live Demo <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i></a>
+          </div>
+        </div>
+      </article>
 
+    </div>
   </div>
 </section>
 
-<!-- CHATBOT (inline, above footer) -->
-<section id="chatbot-section" class="max-w-2xl mx-auto px-4 py-10">
-  <h2 class="text-2xl font-bold mb-5 text-center">Ask Me Anything</h2>
-  <div id="chatbotMount"></div>
+<!-- ================= CERTIFICATIONS ================= -->
+<section id="certifications" class="py-24 px-5 sm:px-8 bg-brand-50/60">
+  <div class="max-w-6xl mx-auto">
+    <p class="font-mono-ui text-xs text-brand-600 tracking-widest uppercase mb-3 text-center reveal">06 &middot; Certifications</p>
+    <h2 class="font-display font-bold text-3xl sm:text-4xl text-ink mb-4 text-center reveal">Certifications</h2>
+    <p class="text-inksoft text-center max-w-xl mx-auto mb-14 reveal reveal-delay-1">
+      A few of my ongoing learning milestones. Replace these placeholder cards with your own certificates any time.
+    </p>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-7">
+
+      <!-- TODO: Replace with your certificate 1 -->
+      <article class="card-lift reveal bg-white border border-brand-100 shadow-card hover:shadow-card-hover rounded-2xl overflow-hidden">
+        <div class="mockup-window h-36 flex items-center justify-center">
+          <i class="fa-solid fa-certificate text-4xl text-white/90"></i>
+        </div>
+        <div class="p-6">
+          <h3 class="font-display font-semibold text-ink mb-1">Full Stack Web Development</h3>
+          <p class="text-xs font-mono-ui text-brand-600 mb-2">Issuing Organization &middot; 2026</p>
+          <p class="text-sm text-inksoft leading-relaxed mb-4">A short description of what this certification covers and the skills it validates.</p>
+          <a href="#" class="btn-ghost inline-flex items-center gap-1.5 border border-brand-150 text-ink text-xs font-semibold px-4 py-2 rounded-full">
+            View Certificate <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+          </a>
+        </div>
+      </article>
+
+      <!-- TODO: Replace with your certificate 2 -->
+      <article class="card-lift reveal reveal-delay-1 bg-white border border-brand-100 shadow-card hover:shadow-card-hover rounded-2xl overflow-hidden">
+        <div class="mockup-window h-36 flex items-center justify-center">
+          <i class="fa-solid fa-certificate text-4xl text-white/90"></i>
+        </div>
+        <div class="p-6">
+          <h3 class="font-display font-semibold text-ink mb-1">JavaScript &amp; TypeScript Essentials</h3>
+          <p class="text-xs font-mono-ui text-brand-600 mb-2">Issuing Organization &middot; 2026</p>
+          <p class="text-sm text-inksoft leading-relaxed mb-4">A short description of what this certification covers and the skills it validates.</p>
+          <a href="#" class="btn-ghost inline-flex items-center gap-1.5 border border-brand-150 text-ink text-xs font-semibold px-4 py-2 rounded-full">
+            View Certificate <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+          </a>
+        </div>
+      </article>
+
+      <!-- TODO: Replace with your certificate 3 -->
+      <article class="card-lift reveal reveal-delay-2 bg-white border border-brand-100 shadow-card hover:shadow-card-hover rounded-2xl overflow-hidden">
+        <div class="mockup-window h-36 flex items-center justify-center">
+          <i class="fa-solid fa-certificate text-4xl text-white/90"></i>
+        </div>
+        <div class="p-6">
+          <h3 class="font-display font-semibold text-ink mb-1">Databases: MongoDB &amp; PostgreSQL</h3>
+          <p class="text-xs font-mono-ui text-brand-600 mb-2">Issuing Organization &middot; 2026</p>
+          <p class="text-sm text-inksoft leading-relaxed mb-4">A short description of what this certification covers and the skills it validates.</p>
+          <a href="#" class="btn-ghost inline-flex items-center gap-1.5 border border-brand-150 text-ink text-xs font-semibold px-4 py-2 rounded-full">
+            View Certificate <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+          </a>
+        </div>
+      </article>
+
+    </div>
+  </div>
 </section>
 
-<!-- FOOTER -->
-<footer class="text-center py-6 text-sm text-gray-500">
-  © 2026 Nafisha Nowshin Tisha | Full Stack Developer
+<!-- ================= HIRE ME ================= -->
+<section id="hireme" class="relative py-24 px-5 sm:px-8 overflow-hidden">
+  <div class="absolute inset-0 bg-gradient-to-br from-brand-800 via-brand-600 to-brand-500"></div>
+  <div class="absolute inset-0 dot-field opacity-20" style="background-image: radial-gradient(rgba(255,255,255,0.35) 1.4px, transparent 1.4px);"></div>
+
+  <div class="relative max-w-4xl mx-auto text-center reveal">
+    <h2 class="font-display font-bold text-3xl sm:text-4xl text-white mb-4">Let's Build Something Great</h2>
+    <p class="text-brand-100 max-w-2xl mx-auto mb-10 text-base sm:text-lg">
+      I'm currently available for
+    </p>
+
+    <div class="flex flex-wrap justify-center gap-3 mb-10">
+      <span class="font-mono-ui text-xs sm:text-sm text-white bg-white/10 border border-white/25 backdrop-blur px-4 py-2 rounded-full">Full Stack Development</span>
+      <span class="font-mono-ui text-xs sm:text-sm text-white bg-white/10 border border-white/25 backdrop-blur px-4 py-2 rounded-full">Web Development</span>
+      <span class="font-mono-ui text-xs sm:text-sm text-white bg-white/10 border border-white/25 backdrop-blur px-4 py-2 rounded-full">Freelance Projects</span>
+      <span class="font-mono-ui text-xs sm:text-sm text-white bg-white/10 border border-white/25 backdrop-blur px-4 py-2 rounded-full">Internship / Job Opportunities</span>
+    </div>
+
+    <a href="#contact" class="inline-flex items-center gap-2 bg-white text-brand-700 font-semibold px-7 py-3.5 rounded-full shadow-card-hover hover:-translate-y-1 hover:shadow-lg transition-all">
+      Let's Work Together <i class="fa-solid fa-arrow-right text-xs"></i>
+    </a>
+  </div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section id="contact" class="py-24 px-5 sm:px-8">
+  <div class="max-w-5xl mx-auto">
+    <p class="font-mono-ui text-xs text-brand-600 tracking-widest uppercase mb-3 text-center reveal">07 &middot; Contact</p>
+    <h2 class="font-display font-bold text-3xl sm:text-4xl text-ink mb-4 text-center reveal">Get In Touch</h2>
+    <p class="text-inksoft text-center max-w-xl mx-auto mb-14 reveal reveal-delay-1">
+      Have an opportunity or a project in mind? I'd love to hear from you.
+    </p>
+
+    <div class="grid md:grid-cols-3 gap-6 mb-14">
+      <a href="mailto:nafisatisha230@gmail.com" class="card-lift reveal bg-white border border-brand-100 shadow-card hover:shadow-card-hover rounded-2xl p-7 text-center">
+        <i class="fa-solid fa-envelope text-2xl text-brand-600 mb-3"></i>
+        <h3 class="font-display font-semibold text-ink mb-1">Email</h3>
+        <p class="text-sm text-inksoft break-all">nafisatisha230@gmail.com</p>
+      </a>
+      <a href="https://www.linkedin.com/in/nafishanowshintisha" target="_blank" rel="noopener" class="card-lift reveal reveal-delay-1 bg-white border border-brand-100 shadow-card hover:shadow-card-hover rounded-2xl p-7 text-center">
+        <i class="fab fa-linkedin text-2xl text-brand-600 mb-3"></i>
+        <h3 class="font-display font-semibold text-ink mb-1">LinkedIn</h3>
+        <p class="text-sm text-inksoft">/in/nafishanowshintisha</p>
+      </a>
+      <a href="https://github.com/nowshintisha230" target="_blank" rel="noopener" class="card-lift reveal reveal-delay-2 bg-white border border-brand-100 shadow-card hover:shadow-card-hover rounded-2xl p-7 text-center">
+        <i class="fab fa-github text-2xl text-brand-600 mb-3"></i>
+        <h3 class="font-display font-semibold text-ink mb-1">GitHub</h3>
+        <p class="text-sm text-inksoft">/nowshintisha230</p>
+      </a>
+    </div>
+
+    <p class="text-center text-sm text-inksoft reveal">
+      Prefer a quick Q&amp;A? Try my
+      <a href="#chatbot-section" class="text-brand-600 font-semibold hover:underline">AI portfolio assistant</a> below.
+    </p>
+  </div>
+</section>
+
+<!-- ================= CHATBOT ================= -->
+<section id="chatbot-section" class="pb-24 px-5 sm:px-8">
+  <div class="max-w-2xl mx-auto">
+    <p class="font-mono-ui text-xs text-brand-600 tracking-widest uppercase mb-3 text-center reveal">Ask Me</p>
+    <h2 class="font-display font-bold text-2xl sm:text-3xl text-ink mb-8 text-center reveal">Ask My AI Assistant</h2>
+    <div id="chatbotMount" class="reveal reveal-delay-1"></div>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer class="border-t border-brand-100 bg-brand-50/60">
+  <div class="max-w-6xl mx-auto px-5 sm:px-8 py-10 flex flex-col sm:flex-row justify-between items-center gap-5">
+    <div class="text-center sm:text-left">
+      <p class="font-display font-bold text-ink">Nafisha Nowshin Tisha</p>
+      <p class="text-sm text-inksoft">Full Stack Developer</p>
+    </div>
+
+    <div class="flex gap-4 text-lg text-inksoft">
+      <a href="https://github.com/nowshintisha230" target="_blank" rel="noopener" class="w-9 h-9 rounded-full border border-brand-150 flex items-center justify-center hover:text-brand-600 hover:border-brand-400 transition"><i class="fab fa-github"></i></a>
+      <a href="https://www.linkedin.com/in/nafishanowshintisha" target="_blank" rel="noopener" class="w-9 h-9 rounded-full border border-brand-150 flex items-center justify-center hover:text-brand-600 hover:border-brand-400 transition"><i class="fab fa-linkedin"></i></a>
+    </div>
+
+    <p class="text-xs text-inksoft/70 font-mono-ui text-center sm:text-right">&copy; 2026 Nafisha Nowshin Tisha</p>
+  </div>
 </footer>
 
 <script>
+  // Mobile menu
   const menuBtn = document.getElementById('menuBtn');
   const mobileMenu = document.getElementById('mobileMenu');
   const menuIcon = document.getElementById('menuIcon');
@@ -351,16 +729,38 @@ section {
   menuBtn.addEventListener('click', () => {
     mobileMenu.classList.toggle('hidden');
     const isOpen = !mobileMenu.classList.contains('hidden');
+    menuBtn.setAttribute('aria-expanded', String(isOpen));
     menuIcon.className = isOpen ? 'fa-solid fa-xmark' : 'fa-solid fa-bars';
   });
 
-  // Close menu when a link is clicked
   document.querySelectorAll('.mobile-link').forEach(link => {
     link.addEventListener('click', () => {
       mobileMenu.classList.add('hidden');
       menuIcon.className = 'fa-solid fa-bars';
     });
   });
+
+  // Navbar scroll shadow
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 8);
+  }, { passive: true });
+
+  // Scroll reveal (progressive enhancement — content is visible by default via .show)
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  } else {
+    document.querySelectorAll('.reveal').forEach(el => el.classList.add('show'));
+  }
 </script>
 
 <!-- CHATBOT (separate file) -->
