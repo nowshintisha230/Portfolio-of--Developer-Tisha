@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Project Details | Nafisha Nowshin Tisha</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          ink: '#0B1730',
+          inksoft: '#4B5875',
+          brand: {
+            50:  '#F5F8FF', 100: '#EAF1FF', 150: '#DCE8FF', 200: '#C6D9FF', 300: '#9BB9FA',
+            400: '#5B86F5', 500: '#3465EA', 600: '#234FE0', 700: '#1B3EB8', 800: '#152F8C', 900: '#0F2266',
+          },
+        },
+        fontFamily: {
+          display: ['Sora', 'sans-serif'],
+          body: ['Inter', 'sans-serif'],
+          mono: ['"JetBrains Mono"', 'monospace'],
+        },
+        boxShadow: {
+          'card': '0 1px 2px rgba(15,34,102,0.04), 0 8px 24px -8px rgba(15,34,102,0.12)',
+          'card-hover': '0 4px 10px rgba(15,34,102,0.06), 0 20px 40px -12px rgba(15,34,102,0.22)',
+        },
+      }
+    }
+  }
+</script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', sans-serif; color: #0B1730; background: #FFFFFF; }
+  h1, h2, h3, .font-display { font-family: 'Sora', sans-serif; }
+  .font-mono-ui { font-family: 'JetBrains Mono', monospace; }
+  .dot-field { background-image: radial-gradient(rgba(35,79,224,0.14) 1.4px, transparent 1.4px); background-size: 26px 26px; }
+  ::selection { background: #234FE0; color: #ffffff; }
+  .btn-primary {
+    background: linear-gradient(135deg, #234FE0, #3465EA 55%, #5B86F5);
+    box-shadow: 0 10px 24px -8px rgba(35,79,224,0.55);
+    transition: transform .3s cubic-bezier(.2,.7,.2,1), box-shadow .3s ease, filter .3s ease;
+  }
+  .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 16px 30px -8px rgba(35,79,224,0.6); filter: brightness(1.05); }
+  .btn-ghost { transition: all .3s ease; }
+  .btn-ghost:hover { background: #F5F8FF; border-color: #9BB9FA; transform: translateY(-3px); }
+  .grad-text { background: linear-gradient(100deg, #0F2266, #234FE0 60%, #3465EA); -webkit-background-clip: text; background-clip: text; color: transparent; }
+</style>
+</head>
+
+<body class="bg-white text-ink antialiased">
+
+<header class="fixed top-0 inset-x-0 z-50 bg-white/85 backdrop-blur-md shadow-[0_1px_0_rgba(15,34,102,0.06)]">
+  <nav class="max-w-6xl mx-auto flex justify-between items-center px-5 sm:px-8 py-4">
+    <a href="index.html#home" class="font-display font-bold text-lg tracking-tight text-ink flex items-center gap-2">
+      <span class="w-8 h-8 rounded-lg bg-gradient-to-br from-brand-600 to-brand-400 text-white flex items-center justify-center text-sm font-display">NT</span>
+      <span>Nafisha<span class="text-brand-600">.</span></span>
+    </a>
+    <a href="index.html#projects" class="btn-ghost border border-brand-200 text-ink text-sm font-semibold px-5 py-2.5 rounded-full inline-flex items-center gap-2">
+      <i class="fa-solid fa-arrow-left text-xs"></i> Back to Projects
+    </a>
+  </nav>
+</header>
+
+<main id="detail" class="relative pt-32 pb-24 px-5 sm:px-8 dot-field min-h-screen">
+  <div class="max-w-5xl mx-auto"></div>
+</main>
+
+<footer class="border-t border-brand-100 bg-brand-50/60">
+  <div class="max-w-6xl mx-auto px-5 sm:px-8 py-8 flex flex-col sm:flex-row justify-between items-center gap-3">
+    <p class="font-display font-bold text-ink">Nafisha Nowshin Tisha</p>
+    <p class="text-xs text-inksoft/70 font-mono-ui">&copy; 2026 Nafisha Nowshin Tisha</p>
+  </div>
+</footer>
+
+<div id="lightbox" class="hidden fixed inset-0 z-[60] bg-ink/85 backdrop-blur-sm items-center justify-center p-4 cursor-zoom-out" onclick="closeLightbox()">
+  <img id="lightboxImg" src="" alt="" class="max-w-full max-h-full rounded-xl shadow-card-hover">
+</div>
+
+<script>
+  const projects = {
+    findback: {
+      name: 'FindBack',
+      tagline: 'Lost & Found Platform',
+      image: 'findback.png',
+      gallery: [
+        ['findback-1.png', 'Report a lost or found item'],
+        ['findback-2.png', 'Listings and search'],
+        ['findback-3.png', 'Item details and claim flow']
+      ],
+      stack: ['Next.js', 'TypeScript', 'Docker', 'Redis', 'Prisma', 'PostgreSQL'],
+      description: 'FindBack helps people recover lost belongings and return found items by connecting lost and found reports in one place. Users can post a report, browse and search existing reports, and get matched with the person on the other side. Redis is used for caching and fast lookups, Prisma with PostgreSQL stores structured report data, and Docker keeps the development environment consistent.',
+      live: 'https://findback-seven.vercel.app/',
+      github: 'https://github.com/nowshintisha230/FindBack',
+      challenges: [
+        'Designing a relational schema in Prisma/PostgreSQL that links lost reports with found reports cleanly.',
+        'Deciding what to cache in Redis and when to invalidate it so listings never show stale data.',
+        'Containerizing the app with Docker so the database, cache and app run the same on every machine.',
+        'Keeping strict TypeScript types consistent between the API layer and the UI.'
+      ],
+      improvements: [
+        'Smarter automatic matching between lost and found reports (keywords, category, location, date).',
+        'Real-time notifications by email or push when a possible match is found.',
+        'Image upload with moderation and a verified claim process for item owners.',
+        'Map-based search and an admin dashboard for managing reports.'
+      ]
+    },
+    renteasy: {
+      name: 'RentEasy',
+      tagline: 'Property Rental & Booking Platform',
+      image: 'renteasy.png',
+      gallery: [
+        ['renteasy-1.png', 'Property listing and search'],
+        ['renteasy-2.png', 'Property details and booking'],
+        ['renteasy-3.png', 'Owner dashboard with 12-month earnings chart'],
+        ['renteasy-4.png', 'Admin / Tenant dashboard']
+      ],
+      stack: ['Next.js', 'React', 'Node.js', 'Express.js', 'MongoDB', 'Firebase Auth', 'JWT', 'Stripe', 'Tailwind CSS'],
+      description: 'A full-stack MERN + Next.js rental platform with role-based Tenant, Owner and Admin dashboards. It supports Stripe payments, Firebase authentication, favorites, bookings and reviews, plus an owner analytics dashboard with a 12-month earnings chart.',
+      live: 'https://property-rental-client-kappa.vercel.app/',
+      github: 'https://github.com/nowshintisha230/property-rental-client',
+      challenges: [
+        'Implementing role-based access so Tenants, Owners and Admins each see only what they should, on both client and server.',
+        'Combining Firebase authentication with JWT-protected API routes.',
+        'Integrating Stripe payments and keeping booking status in sync with payment status.',
+        'Aggregating bookings into a 12-month earnings chart for the owner dashboard.'
+      ],
+      improvements: [
+        'Real-time chat between tenants and owners.',
+        'Advanced filters and map-based property search.',
+        'Availability calendar to prevent double bookings.',
+        'Email and SMS notifications for booking updates, plus automated tests.'
+      ]
+    },
+    tutorhub: {
+      name: 'TutorHub',
+      tagline: 'Online Tutoring Platform',
+      image: 'tutorhub.png',
+      gallery: [
+        ['tutorhub-1.png', 'Tutor listing'],
+        ['tutorhub-2.png', 'Booking with live slot updates'],
+        ['tutorhub-3.png', 'Student schedule dashboard']
+      ],
+      stack: ['Next.js', 'React', 'Tailwind CSS', 'Node.js', 'Express.js', 'MongoDB Atlas', 'JWT'],
+      description: 'An online tutoring platform where students can find tutors, book sessions with real-time slot updates, and manage their learning schedules. It uses JWT-protected private routes and a fully responsive interface.',
+      live: 'https://mediqueue-fawn.vercel.app',
+      github: 'https://github.com/nowshintisha230/tutorhub',
+      challenges: [
+        'Keeping tutor time slots accurate in real time so two students cannot book the same slot.',
+        'Protecting private routes with JWT while keeping the user experience smooth.',
+        'Designing a booking and schedule flow that is clear on small mobile screens.',
+        'Structuring MongoDB collections for tutors, students and sessions.'
+      ],
+      improvements: [
+        'Built-in video calling for sessions.',
+        'Online payments and tutor payouts.',
+        'Ratings, reviews and tutor recommendations.',
+        'Calendar sync and reminder notifications.'
+      ]
+    }
+  };
+
+  function checkGallery() {
+    const g = document.getElementById('gallery');
+    if (g && !g.querySelector('figure')) g.remove();
+  }
+  function openLightbox(src, alt) {
+    const lb = document.getElementById('lightbox');
+    document.getElementById('lightboxImg').src = src;
+    document.getElementById('lightboxImg').alt = alt;
+    lb.classList.remove('hidden'); lb.classList.add('flex');
+  }
+  function closeLightbox() {
+    const lb = document.getElementById('lightbox');
+    lb.classList.add('hidden'); lb.classList.remove('flex');
+  }
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+
+  const id = new URLSearchParams(location.search).get('id');
+  const p = projects[id];
+  const root = document.querySelector('#detail > div');
+
+  const list = (items, icon) => items.map(i =>
+    `<li class="flex gap-3 text-inksoft leading-relaxed"><i class="fa-solid ${icon} text-brand-500 mt-1.5 text-xs"></i><span>${i}</span></li>`
+  ).join('');
+
+  if (!p) {
+    document.title = 'Project not found | Nafisha Nowshin Tisha';
+    root.innerHTML = `<div class="text-center py-24">
+      <h1 class="font-display font-bold text-3xl mb-4">Project not found</h1>
+      <a href="index.html#projects" class="btn-primary text-white text-sm font-semibold px-6 py-3 rounded-full inline-flex items-center gap-2">Back to Projects</a>
+    </div>`;
+  } else {
+    document.title = p.name + ' | Nafisha Nowshin Tisha';
+    root.innerHTML = `
+      <p class="font-mono-ui text-xs text-brand-600 tracking-widest uppercase mb-3">Project Details</p>
+      <h1 class="font-display font-extrabold text-4xl sm:text-5xl text-ink"><span class="grad-text">${p.name}</span></h1>
+      <p class="font-mono-ui text-brand-600 mt-3">${p.tagline}</p>
+
+      <div class="mt-8 rounded-2xl overflow-hidden border border-brand-100 shadow-card-hover bg-white">
+        <img src="${p.image}" alt="${p.name} screenshot" class="w-full h-auto object-cover">
+      </div>
+
+      <div class="mt-8 flex flex-wrap gap-3">
+        <a href="${p.live}" target="_blank" rel="noopener" class="btn-primary text-white text-sm font-semibold px-6 py-3 rounded-full inline-flex items-center gap-2">
+          <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i> Live Project
+        </a>
+        <a href="${p.github}" target="_blank" rel="noopener" class="btn-ghost border border-brand-200 text-ink text-sm font-semibold px-6 py-3 rounded-full inline-flex items-center gap-2">
+          <i class="fa-brands fa-github"></i> GitHub (Client)
+        </a>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-6 mt-12">
+        <section class="bg-white border border-brand-100 shadow-card rounded-2xl p-6 sm:p-8">
+          <h2 class="font-display font-semibold text-xl text-ink mb-4 flex items-center gap-2"><i class="fa-solid fa-layer-group text-brand-600"></i> Main Technology Stack</h2>
+          <div class="flex flex-wrap gap-2">
+            ${p.stack.map(s => `<span class="text-xs font-medium px-3.5 py-1.5 rounded-full bg-brand-600 text-white">${s}</span>`).join('')}
+          </div>
+        </section>
+        <section class="bg-white border border-brand-100 shadow-card rounded-2xl p-6 sm:p-8">
+          <h2 class="font-display font-semibold text-xl text-ink mb-4 flex items-center gap-2"><i class="fa-solid fa-circle-info text-brand-600"></i> Brief Description</h2>
+          <p class="text-inksoft leading-relaxed text-sm sm:text-base">${p.description}</p>
+        </section>
+        <section class="bg-white border border-brand-100 shadow-card rounded-2xl p-6 sm:p-8">
+          <h2 class="font-display font-semibold text-xl text-ink mb-4 flex items-center gap-2"><i class="fa-solid fa-mountain text-brand-600"></i> Challenges Faced</h2>
+          <ul class="space-y-3 text-sm sm:text-base">${list(p.challenges, 'fa-circle-dot')}</ul>
+        </section>
+        <section class="bg-white border border-brand-100 shadow-card rounded-2xl p-6 sm:p-8">
+          <h2 class="font-display font-semibold text-xl text-ink mb-4 flex items-center gap-2"><i class="fa-solid fa-rocket text-brand-600"></i> Improvements &amp; Future Plans</h2>
+          <ul class="space-y-3 text-sm sm:text-base">${list(p.improvements, 'fa-circle-arrow-up')}</ul>
+        </section>
+      </div>
+
+      <section id="gallery" class="mt-12">
+        <h2 class="font-display font-semibold text-xl text-ink mb-5 flex items-center gap-2"><i class="fa-solid fa-images text-brand-600"></i> Screenshots</h2>
+        <div class="grid sm:grid-cols-2 gap-6">
+          ${p.gallery.map(([src, cap]) => `
+            <figure class="bg-white border border-brand-100 shadow-card rounded-2xl overflow-hidden">
+              <img src="${src}" alt="${p.name}: ${cap}" loading="lazy" onclick="openLightbox(this.src, this.alt)"
+                   onerror="this.closest('figure').remove(); checkGallery();"
+                   class="w-full h-auto cursor-zoom-in">
+              <figcaption class="px-5 py-3 text-sm text-inksoft border-t border-brand-100">${cap}</figcaption>
+            </figure>`).join('')}
+        </div>
+      </section>
+
+      <div class="mt-12 text-center">
+        <a href="index.html#projects" class="btn-ghost border border-brand-200 text-ink text-sm font-semibold px-6 py-3 rounded-full inline-flex items-center gap-2">
+          <i class="fa-solid fa-arrow-left text-xs"></i> Back to all projects
+        </a>
+      </div>`;
+  }
+</script>
+</body>
+</html>

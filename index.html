@@ -392,6 +392,7 @@
           <div class="skill-card bg-white border border-brand-100 shadow-card rounded-xl py-4 text-center text-xs font-medium text-inksoft">Mongoose</div>
           <div class="skill-card bg-white border border-brand-100 shadow-card rounded-xl py-4 text-center text-xs font-medium text-inksoft">PostgreSQL</div>
           <div class="skill-card bg-white border border-brand-100 shadow-card rounded-xl py-4 text-center text-xs font-medium text-inksoft">Prisma</div>
+          <div class="skill-card bg-white border border-brand-100 shadow-card rounded-xl py-4 text-center text-xs font-medium text-inksoft">Redis</div>
         </div>
       </div>
     </div>
@@ -403,6 +404,7 @@
         <div class="skill-card bg-white border border-brand-100 shadow-card rounded-xl py-4 text-center text-xs font-medium text-inksoft">GitHub</div>
         <div class="skill-card bg-white border border-brand-100 shadow-card rounded-xl py-4 text-center text-xs font-medium text-inksoft">Firebase</div>
         <div class="skill-card bg-white border border-brand-100 shadow-card rounded-xl py-4 text-center text-xs font-medium text-inksoft">Stripe</div>
+        <div class="skill-card bg-white border border-brand-100 shadow-card rounded-xl py-4 text-center text-xs font-medium text-inksoft">Docker</div>
       </div>
     </div>
   </div>
@@ -460,115 +462,74 @@
     <h2 class="font-display font-bold text-3xl sm:text-4xl text-ink mb-4 text-center reveal">Selected Projects</h2>
     <p class="text-inksoft text-center max-w-xl mx-auto mb-14 reveal reveal-delay-1">A few projects that show how I think about product, architecture and polish.</p>
 
-    <div class="grid md:grid-cols-2 gap-8">
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
 
-      <!-- FinSight -->
-      <article class="card-lift reveal group bg-white border border-brand-100 shadow-card hover:shadow-card-hover rounded-2xl overflow-hidden md:col-span-2">
-        <div class="grid sm:grid-cols-[1.1fr_1fr]">
-          <div class="mockup-window relative p-6 sm:p-8 flex flex-col justify-between min-h-[220px]">
-            <div class="flex gap-1.5">
-              <span class="w-2.5 h-2.5 rounded-full bg-white/40"></span>
-              <span class="w-2.5 h-2.5 rounded-full bg-white/40"></span>
-              <span class="w-2.5 h-2.5 rounded-full bg-white/40"></span>
-            </div>
-            <div class="text-white">
-              <i class="fa-solid fa-chart-pie text-4xl opacity-90"></i>
-              <p class="font-mono-ui text-xs mt-3 text-white/70">expense-tracker-iota-wine.vercel.app</p>
-            </div>
+      <!-- FindBack -->
+      <article class="card-lift reveal group bg-white border border-brand-100 shadow-card hover:shadow-card-hover rounded-2xl overflow-hidden flex flex-col">
+        <div class="aspect-video overflow-hidden bg-brand-50">
+          <img src="findback.png" alt="FindBack project screenshot" class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105">
+        </div>
+        <div class="p-6 flex flex-col flex-1">
+          <h3 class="font-display font-semibold text-xl text-ink mb-2">FindBack</h3>
+          <p class="text-sm text-inksoft leading-relaxed mb-4">Lost &amp; found platform that connects people who lost items with people who found them.</p>
+          <div class="flex flex-wrap gap-1.5 mb-5">
+            <span class="text-xs px-2.5 py-1 rounded-full bg-brand-50 text-brand-700 border border-brand-150">Next.js</span>
+            <span class="text-xs px-2.5 py-1 rounded-full bg-brand-50 text-brand-700 border border-brand-150">TypeScript</span>
+            <span class="text-xs px-2.5 py-1 rounded-full bg-brand-50 text-brand-700 border border-brand-150">Docker</span>
+            <span class="text-xs px-2.5 py-1 rounded-full bg-brand-50 text-brand-700 border border-brand-150">Redis</span>
+            <span class="text-xs px-2.5 py-1 rounded-full bg-brand-50 text-brand-700 border border-brand-150">Prisma</span>
+            <span class="text-xs px-2.5 py-1 rounded-full bg-brand-50 text-brand-700 border border-brand-150">PostgreSQL</span>
           </div>
-          <div class="p-6 sm:p-8">
-            <h3 class="font-display font-semibold text-xl text-ink mb-2">FinSight — Expense Tracker</h3>
-            <p class="text-sm text-inksoft leading-relaxed mb-4">
-              A simple, fast expense tracking app to log spending, filter by date or category, and visualize where money goes with an interactive pie chart.
-            </p>
-            <div class="flex flex-wrap gap-1.5 mb-5">
-              <span class="text-xs px-2.5 py-1 rounded-full bg-brand-50 text-brand-700 border border-brand-150">Next.js</span>
-              <span class="text-xs px-2.5 py-1 rounded-full bg-brand-50 text-brand-700 border border-brand-150">TypeScript</span>
-              <span class="text-xs px-2.5 py-1 rounded-full bg-brand-50 text-brand-700 border border-brand-150">MongoDB</span>
-              <span class="text-xs px-2.5 py-1 rounded-full bg-brand-50 text-brand-700 border border-brand-150">Mongoose</span>
-              <span class="text-xs px-2.5 py-1 rounded-full bg-brand-50 text-brand-700 border border-brand-150">HeroUI</span>
-              <span class="text-xs px-2.5 py-1 rounded-full bg-brand-50 text-brand-700 border border-brand-150">Recharts</span>
-              <span class="text-xs px-2.5 py-1 rounded-full bg-brand-50 text-brand-700 border border-brand-150">Tailwind CSS</span>
-            </div>
-            <a href="https://expense-tracker-iota-wine.vercel.app/" target="_blank" rel="noopener"
-               class="btn-primary inline-flex items-center gap-2 text-white text-sm font-semibold px-5 py-2.5 rounded-full">
-              Live Demo <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
-            </a>
-          </div>
+          <a href="project.html?id=findback"
+             class="mt-auto btn-primary self-start inline-flex items-center gap-2 text-white text-sm font-semibold px-5 py-2.5 rounded-full">
+            View More <i class="fa-solid fa-arrow-right text-xs"></i>
+          </a>
         </div>
       </article>
 
       <!-- RentEasy -->
       <article class="card-lift reveal reveal-delay-1 group bg-white border border-brand-100 shadow-card hover:shadow-card-hover rounded-2xl overflow-hidden flex flex-col">
-        <div class="mockup-window relative p-6 flex flex-col justify-between min-h-[160px]">
-          <div class="flex gap-1.5">
-            <span class="w-2.5 h-2.5 rounded-full bg-white/40"></span>
-            <span class="w-2.5 h-2.5 rounded-full bg-white/40"></span>
-            <span class="w-2.5 h-2.5 rounded-full bg-white/40"></span>
-          </div>
-          <i class="fa-solid fa-building-user text-4xl text-white/90"></i>
+        <div class="aspect-video overflow-hidden bg-brand-50">
+          <img src="renteasy.png" alt="RentEasy project screenshot" class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105">
         </div>
-        <div class="p-6 sm:p-7 flex flex-col flex-1">
+        <div class="p-6 flex flex-col flex-1">
           <h3 class="font-display font-semibold text-xl text-ink mb-2">RentEasy</h3>
-          <p class="text-xs font-mono-ui text-brand-600 mb-2">Property Rental &amp; Booking Platform</p>
-          <p class="text-sm text-inksoft leading-relaxed mb-4">
-            Full-stack MERN + Next.js rental platform with role-based Tenant/Owner/Admin dashboards, Stripe payments, Firebase auth, favorites, bookings, reviews, and an owner analytics dashboard with a 12-month earnings chart.
-          </p>
+          <p class="text-sm text-inksoft leading-relaxed mb-4">Property rental platform with Tenant, Owner and Admin dashboards, Stripe payments and analytics.</p>
           <div class="flex flex-wrap gap-1.5 mb-5">
             <span class="text-xs px-2.5 py-1 rounded-full bg-brand-50 text-brand-700 border border-brand-150">Next.js</span>
-            <span class="text-xs px-2.5 py-1 rounded-full bg-brand-50 text-brand-700 border border-brand-150">React</span>
             <span class="text-xs px-2.5 py-1 rounded-full bg-brand-50 text-brand-700 border border-brand-150">Node.js</span>
             <span class="text-xs px-2.5 py-1 rounded-full bg-brand-50 text-brand-700 border border-brand-150">Express.js</span>
             <span class="text-xs px-2.5 py-1 rounded-full bg-brand-50 text-brand-700 border border-brand-150">MongoDB</span>
-            <span class="text-xs px-2.5 py-1 rounded-full bg-brand-50 text-brand-700 border border-brand-150">Firebase Auth</span>
-            <span class="text-xs px-2.5 py-1 rounded-full bg-brand-50 text-brand-700 border border-brand-150">JWT</span>
             <span class="text-xs px-2.5 py-1 rounded-full bg-brand-50 text-brand-700 border border-brand-150">Stripe</span>
-            <span class="text-xs px-2.5 py-1 rounded-full bg-brand-50 text-brand-700 border border-brand-150">Tailwind CSS</span>
+            <span class="text-xs px-2.5 py-1 rounded-full bg-brand-50 text-brand-700 border border-brand-150">Firebase</span>
           </div>
-          <div class="mt-auto flex flex-wrap gap-2.5">
-            <a href="https://github.com/nowshintisha230/property-rental-client" target="_blank" rel="noopener"
-               class="btn-ghost border border-brand-150 text-ink text-xs font-semibold px-4 py-2 rounded-full inline-flex items-center gap-1.5"><i class="fa-brands fa-github"></i> Client</a>
-            <a href="https://github.com/nowshintisha230/property-rental-server" target="_blank" rel="noopener"
-               class="btn-ghost border border-brand-150 text-ink text-xs font-semibold px-4 py-2 rounded-full inline-flex items-center gap-1.5"><i class="fa-brands fa-github"></i> Server</a>
-            <a href="https://property-rental-client-kappa.vercel.app/" target="_blank" rel="noopener"
-               class="btn-primary text-white text-xs font-semibold px-4 py-2 rounded-full inline-flex items-center gap-1.5">Live Demo <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i></a>
-          </div>
+          <a href="project.html?id=renteasy"
+             class="mt-auto btn-primary self-start inline-flex items-center gap-2 text-white text-sm font-semibold px-5 py-2.5 rounded-full">
+            View More <i class="fa-solid fa-arrow-right text-xs"></i>
+          </a>
         </div>
       </article>
 
       <!-- TutorHub -->
       <article class="card-lift reveal reveal-delay-2 group bg-white border border-brand-100 shadow-card hover:shadow-card-hover rounded-2xl overflow-hidden flex flex-col">
-        <div class="mockup-window relative p-6 flex flex-col justify-between min-h-[160px]">
-          <div class="flex gap-1.5">
-            <span class="w-2.5 h-2.5 rounded-full bg-white/40"></span>
-            <span class="w-2.5 h-2.5 rounded-full bg-white/40"></span>
-            <span class="w-2.5 h-2.5 rounded-full bg-white/40"></span>
-          </div>
-          <i class="fa-solid fa-chalkboard-user text-4xl text-white/90"></i>
+        <div class="aspect-video overflow-hidden bg-brand-50">
+          <img src="tutorhub.png" alt="TutorHub project screenshot" class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105">
         </div>
-        <div class="p-6 sm:p-7 flex flex-col flex-1">
+        <div class="p-6 flex flex-col flex-1">
           <h3 class="font-display font-semibold text-xl text-ink mb-2">TutorHub</h3>
-          <p class="text-xs font-mono-ui text-brand-600 mb-2">Online Tutoring Platform</p>
-          <p class="text-sm text-inksoft leading-relaxed mb-4">
-            An online tutoring platform where students can find tutors, book sessions with real-time slot updates, and manage learning schedules, with JWT-protected private routes and a responsive UI.
-          </p>
+          <p class="text-sm text-inksoft leading-relaxed mb-4">Tutoring platform to find tutors, book sessions with live slot updates and manage schedules.</p>
           <div class="flex flex-wrap gap-1.5 mb-5">
             <span class="text-xs px-2.5 py-1 rounded-full bg-brand-50 text-brand-700 border border-brand-150">Next.js</span>
-            <span class="text-xs px-2.5 py-1 rounded-full bg-brand-50 text-brand-700 border border-brand-150">React</span>
-            <span class="text-xs px-2.5 py-1 rounded-full bg-brand-50 text-brand-700 border border-brand-150">Tailwind CSS</span>
             <span class="text-xs px-2.5 py-1 rounded-full bg-brand-50 text-brand-700 border border-brand-150">Node.js</span>
             <span class="text-xs px-2.5 py-1 rounded-full bg-brand-50 text-brand-700 border border-brand-150">Express.js</span>
-            <span class="text-xs px-2.5 py-1 rounded-full bg-brand-50 text-brand-700 border border-brand-150">MongoDB Atlas</span>
+            <span class="text-xs px-2.5 py-1 rounded-full bg-brand-50 text-brand-700 border border-brand-150">MongoDB</span>
             <span class="text-xs px-2.5 py-1 rounded-full bg-brand-50 text-brand-700 border border-brand-150">JWT</span>
+            <span class="text-xs px-2.5 py-1 rounded-full bg-brand-50 text-brand-700 border border-brand-150">Tailwind CSS</span>
           </div>
-          <div class="mt-auto flex flex-wrap gap-2.5">
-            <a href="https://github.com/nowshintisha230/tutorhub" target="_blank" rel="noopener"
-               class="btn-ghost border border-brand-150 text-ink text-xs font-semibold px-4 py-2 rounded-full inline-flex items-center gap-1.5"><i class="fa-brands fa-github"></i> Client</a>
-            <a href="https://github.com/nowshintisha230/tutorhub-server" target="_blank" rel="noopener"
-               class="btn-ghost border border-brand-150 text-ink text-xs font-semibold px-4 py-2 rounded-full inline-flex items-center gap-1.5"><i class="fa-brands fa-github"></i> Server</a>
-            <a href="https://mediqueue-fawn.vercel.app" target="_blank" rel="noopener"
-               class="btn-primary text-white text-xs font-semibold px-4 py-2 rounded-full inline-flex items-center gap-1.5">Live Demo <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i></a>
-          </div>
+          <a href="project.html?id=tutorhub"
+             class="mt-auto btn-primary self-start inline-flex items-center gap-2 text-white text-sm font-semibold px-5 py-2.5 rounded-full">
+            View More <i class="fa-solid fa-arrow-right text-xs"></i>
+          </a>
         </div>
       </article>
 
@@ -582,51 +543,40 @@
     <p class="font-mono-ui text-xs text-brand-600 tracking-widest uppercase mb-3 text-center reveal">06 &middot; Certifications</p>
     <h2 class="font-display font-bold text-3xl sm:text-4xl text-ink mb-4 text-center reveal">Certifications</h2>
     <p class="text-inksoft text-center max-w-xl mx-auto mb-14 reveal reveal-delay-1">
-      A few of my ongoing learning milestones. Replace these placeholder cards with your own certificates any time.
+      Learning milestones and professional experience I've completed along the way.
     </p>
 
-    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-7">
+    <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
 
-      <!-- TODO: Replace with your certificate 1 -->
-      <article class="card-lift reveal bg-white border border-brand-100 shadow-card hover:shadow-card-hover rounded-2xl overflow-hidden">
-        <div class="mockup-window h-36 flex items-center justify-center">
-          <i class="fa-solid fa-certificate text-4xl text-white/90"></i>
+      <!-- Certificate 1: Programming Hero -->
+      <article class="card-lift reveal bg-white border border-brand-100 shadow-card hover:shadow-card-hover rounded-2xl overflow-hidden flex flex-col">
+        <div class="bg-brand-50 border-b border-brand-100">
+          <img src="ph.png" alt="Programming Hero Certificate of Completion" class="w-full h-auto object-cover">
         </div>
-        <div class="p-6">
-          <h3 class="font-display font-semibold text-ink mb-1">Full Stack Web Development</h3>
-          <p class="text-xs font-mono-ui text-brand-600 mb-2">Issuing Organization &middot; 2026</p>
-          <p class="text-sm text-inksoft leading-relaxed mb-4">A short description of what this certification covers and the skills it validates.</p>
-          <a href="#" class="btn-ghost inline-flex items-center gap-1.5 border border-brand-150 text-ink text-xs font-semibold px-4 py-2 rounded-full">
+        <div class="p-6 flex flex-col flex-1">
+          <h3 class="font-display font-semibold text-ink mb-1">Complete Web Development Course</h3>
+          <p class="text-xs font-mono-ui text-brand-600 mb-3">Programming Hero &middot; 2026</p>
+          <p class="text-sm text-inksoft leading-relaxed mb-5">
+            Successfully completed the Complete Web Development Course with Programming Hero, demonstrating proficiency in HTML, CSS, JavaScript, React.js, Next.js, Node.js, Express.js, and MongoDB. Gained practical experience in full-stack web development, modern web technologies, and AI-powered development practices, with a focus on building responsive and functional web applications.
+          </p>
+          <a href="certificate (1).pdf" target="_blank" rel="noopener" class="mt-auto self-start btn-ghost inline-flex items-center gap-1.5 border border-brand-150 text-ink text-xs font-semibold px-4 py-2 rounded-full">
             View Certificate <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
           </a>
         </div>
       </article>
 
-      <!-- TODO: Replace with your certificate 2 -->
-      <article class="card-lift reveal reveal-delay-1 bg-white border border-brand-100 shadow-card hover:shadow-card-hover rounded-2xl overflow-hidden">
-        <div class="mockup-window h-36 flex items-center justify-center">
-          <i class="fa-solid fa-certificate text-4xl text-white/90"></i>
+      <!-- Certificate 2: JEVXO -->
+      <article class="card-lift reveal reveal-delay-1 bg-white border border-brand-100 shadow-card hover:shadow-card-hover rounded-2xl overflow-hidden flex flex-col">
+        <div class="bg-brand-50 border-b border-brand-100">
+          <img src="jevxo.png" alt="JEVXO Certificate of Internship" class="w-full h-auto object-cover">
         </div>
-        <div class="p-6">
-          <h3 class="font-display font-semibold text-ink mb-1">JavaScript &amp; TypeScript Essentials</h3>
-          <p class="text-xs font-mono-ui text-brand-600 mb-2">Issuing Organization &middot; 2026</p>
-          <p class="text-sm text-inksoft leading-relaxed mb-4">A short description of what this certification covers and the skills it validates.</p>
-          <a href="#" class="btn-ghost inline-flex items-center gap-1.5 border border-brand-150 text-ink text-xs font-semibold px-4 py-2 rounded-full">
-            View Certificate <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
-          </a>
-        </div>
-      </article>
-
-      <!-- TODO: Replace with your certificate 3 -->
-      <article class="card-lift reveal reveal-delay-2 bg-white border border-brand-100 shadow-card hover:shadow-card-hover rounded-2xl overflow-hidden">
-        <div class="mockup-window h-36 flex items-center justify-center">
-          <i class="fa-solid fa-certificate text-4xl text-white/90"></i>
-        </div>
-        <div class="p-6">
-          <h3 class="font-display font-semibold text-ink mb-1">Databases: MongoDB &amp; PostgreSQL</h3>
-          <p class="text-xs font-mono-ui text-brand-600 mb-2">Issuing Organization &middot; 2026</p>
-          <p class="text-sm text-inksoft leading-relaxed mb-4">A short description of what this certification covers and the skills it validates.</p>
-          <a href="#" class="btn-ghost inline-flex items-center gap-1.5 border border-brand-150 text-ink text-xs font-semibold px-4 py-2 rounded-full">
+        <div class="p-6 flex flex-col flex-1">
+          <h3 class="font-display font-semibold text-ink mb-1">MERN Stack Developer Intern</h3>
+          <p class="text-xs font-mono-ui text-brand-600 mb-3">JEVXO &middot; 2026</p>
+          <p class="text-sm text-inksoft leading-relaxed mb-5">
+            Completed a professional internship at JEVXO as a MERN Stack Developer in the Development Department. Demonstrated technical competence, dedication, and professional excellence while contributing to development activities. Received an Outstanding rating in recognition of performance and professional commitment.
+          </p>
+          <a href="Internship_Certificate_Nafisha_Nowshin_Tisha.pdf" target="_blank" rel="noopener" class="mt-auto self-start btn-ghost inline-flex items-center gap-1.5 border border-brand-150 text-ink text-xs font-semibold px-4 py-2 rounded-full">
             View Certificate <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
           </a>
         </div>
