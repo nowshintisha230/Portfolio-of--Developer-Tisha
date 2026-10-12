@@ -1,0 +1,76 @@
+/* =========================================================
+   theme.css — shared by index.html and project.html
+   1) navbar helpers   2) theme toggle icons   3) dark mode
+   Dark mode is switched by the "dark" class on <html>.
+   ========================================================= */
+
+/* ---------- 1. Navbar helpers ---------- */
+.nav-underline { position: relative; white-space: nowrap; }
+.nav-underline::after {
+  content: ''; position: absolute; left: 0; bottom: -6px; height: 2px; width: 0%;
+  background: #234FE0; transition: width .25s ease;
+}
+.nav-underline:hover::after, .nav-underline.active::after { width: 100%; }
+#navbar.scrolled { box-shadow: 0 1px 0 rgba(15,34,102,0.06), 0 12px 30px -18px rgba(15,34,102,0.25); }
+
+/* ---------- 2. Theme toggle icons ---------- */
+.theme-icon-sun { display: none; }
+html.dark .theme-icon-sun { display: inline-block; }
+html.dark .theme-icon-moon { display: none; }
+body { transition: background-color .3s ease, color .3s ease; }
+
+/* ---------- 3. Dark mode ---------- */
+html.dark { color-scheme: dark; }
+html.dark body { background: #0A1020; color: #E6ECFA; }
+
+/* surfaces */
+html.dark body .bg-white { background-color: #101A2E; }
+html.dark body .bg-white\/85 { background-color: rgba(10, 16, 32, 0.85); }
+html.dark body .bg-brand-50\/60 { background-color: #0D1528; }
+html.dark body .bg-brand-50 { background-color: #14203A; }
+html.dark body .bg-brand-100 { background-color: #172647; }
+html.dark body .hover\:bg-brand-50:hover { background-color: #14203A; }
+
+/* borders */
+html.dark body .border-brand-100 { border-color: #1F2E4D; }
+html.dark body .border-brand-150 { border-color: #263859; }
+html.dark body .border-brand-200 { border-color: #2F4268; }
+
+/* text */
+html.dark body .text-ink { color: #E6ECFA; }
+html.dark body .text-inksoft { color: #A3B3D1; }
+html.dark body .text-inksoft\/70 { color: rgba(163, 179, 209, 0.7); }
+html.dark body .text-brand-600,
+html.dark body .text-brand-700,
+html.dark body .text-brand-800 { color: #8DAEFF; }
+html.dark body .hover\:text-ink:hover { color: #FFFFFF; }
+html.dark body .hover\:text-brand-600:hover { color: #8DAEFF; }
+
+/* keep the white CTA on the blue "Hire Me" band readable */
+html.dark body #hireme a.bg-white { background-color: #FFFFFF; color: #1B3EB8; }
+
+/* gradient headline text */
+html.dark .grad-text {
+  background: linear-gradient(100deg, #C6D9FF, #8DAEFF 55%, #5B86F5);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+
+/* misc */
+html.dark .timeline-dot { box-shadow: 0 0 0 5px #172647; }
+html.dark .dot-field { background-image: radial-gradient(rgba(141, 174, 255, 0.12) 1.4px, transparent 1.4px); }
+html.dark body .btn-ghost:hover { background: #14203A; border-color: #3B5190; }
+html.dark body .chip:hover { background: #14203A; border-color: #3B5190; }
+html.dark ::-webkit-scrollbar-track { background: #0A1020; }
+html.dark ::-webkit-scrollbar-thumb { background: #2B3C63; }
+html.dark ::-webkit-scrollbar-thumb:hover { background: #3B5190; }
+
+/* AI assistant widget (chatbot.js uses hard-coded hex classes) */
+html.dark body [class*="bg-[#F5F8FF]"] { background-color: #0D1528; }
+html.dark body [class*="border-[#DCE8FF]"] { border-color: #263859; }
+html.dark body [class*="border-[#EAF1FF]"] { border-color: #1F2E4D; }
+html.dark body [class*="border-[#C6D9FF]"] { border-color: #2F4268; }
+html.dark body [class*="text-[#0B1730]"] { color: #E6ECFA; }
+html.dark body [class*="text-[#1B3EB8]"],
+html.dark body [class*="text-[#234FE0]"] { color: #8DAEFF; }
+html.dark body [class*="hover:bg-[#EAF1FF]"]:hover { background-color: #14203A; }
+html.dark body input::placeholder { color: #7587AB; }

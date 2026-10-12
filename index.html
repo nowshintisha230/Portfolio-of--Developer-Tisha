@@ -2,6 +2,17 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<script>
+  // Apply saved theme before first paint (prevents a white flash in dark mode)
+  (function () {
+    try {
+      var t = localStorage.getItem('theme');
+      if (t === 'dark' || (!t && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark');
+      }
+    } catch (e) {}
+  })();
+</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Nafisha Nowshin Tisha | Full Stack Developer</title>
 <meta name="description" content="Portfolio of Nafisha Nowshin Tisha — Full Stack Developer specializing in modern, scalable web applications.">
@@ -62,7 +73,9 @@
   }
 
   /* reveal-on-scroll */
-  .reveal { opacity: 0; transform: translateY(28px); transition: opacity .7s cubic-bezier(.2,.7,.2,1), transform .7s cubic-bezier(.2,.7,.2,1); }
+  /* sections are only hidden once index.js has run, so the page never ends up blank if index.js fails to load */
+  .reveal { transition: opacity .7s cubic-bezier(.2,.7,.2,1), transform .7s cubic-bezier(.2,.7,.2,1); }
+  html.reveal-ready .reveal:not(.show) { opacity: 0; transform: translateY(28px); }
   .reveal.show { opacity: 1; transform: translateY(0); }
   .reveal-delay-1.show { transition-delay: .08s; }
   .reveal-delay-2.show { transition-delay: .16s; }
@@ -88,13 +101,6 @@
   ::-webkit-scrollbar-thumb { background: #C6D9FF; border-radius: 999px; }
   ::-webkit-scrollbar-thumb:hover { background: #9BB9FA; }
 
-  .nav-underline { position: relative; }
-  .nav-underline::after {
-    content: ''; position: absolute; left: 0; bottom: -6px; height: 2px; width: 0%;
-    background: #234FE0; transition: width .25s ease;
-  }
-  .nav-underline:hover::after, .nav-underline.active::after { width: 100%; }
-
   .card-lift { transition: transform .35s cubic-bezier(.2,.7,.2,1), box-shadow .35s ease, border-color .35s ease; }
   .card-lift:hover { transform: translateY(-6px); }
 
@@ -118,7 +124,11 @@
 
   .timeline-dot { box-shadow: 0 0 0 5px #EAF1FF; }
 
-  #navbar.scrolled { box-shadow: 0 1px 0 rgba(15,34,102,0.06), 0 12px 30px -18px rgba(15,34,102,0.25); }
+  /* project card slideshow */
+  .slide-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: top;
+               opacity: 0; transition: opacity .15s ease, transform .5s ease; }
+  .slide-img.active { opacity: 1; }
+  .group:hover .slide-img { transform: scale(1.05); }
 
   .mockup-window {
     background: linear-gradient(160deg, #0F2266, #234FE0 55%, #5B86F5);
@@ -134,55 +144,14 @@
     .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
   }
 </style>
+<link rel="stylesheet" href="theme.css">
 </head>
 
 <body class="bg-white text-ink antialiased">
 
-<!-- ================= NAVBAR ================= -->
-<header id="navbar" class="fixed top-0 inset-x-0 z-50 bg-white/85 backdrop-blur-md transition-shadow duration-300">
-  <nav class="max-w-6xl mx-auto flex justify-between items-center px-5 sm:px-8 py-4">
-    <a href="#home" class="font-display font-bold text-lg tracking-tight text-ink flex items-center gap-2">
-      <span class="w-8 h-8 rounded-lg bg-gradient-to-br from-brand-600 to-brand-400 text-white flex items-center justify-center text-sm font-display">NT</span>
-      <span>Nafisha<span class="text-brand-600">.</span></span>
-    </a>
-
-    <div class="hidden lg:flex items-center gap-8 text-sm font-medium text-inksoft">
-      <a href="#home" class="nav-underline hover:text-ink">Home</a>
-      <a href="#about" class="nav-underline hover:text-ink">About</a>
-      <a href="#education" class="nav-underline hover:text-ink">Education</a>
-      <a href="#skills" class="nav-underline hover:text-ink">Skills</a>
-      <a href="#experience" class="nav-underline hover:text-ink">Experience</a>
-      <a href="#projects" class="nav-underline hover:text-ink">Projects</a>
-      <a href="#certifications" class="nav-underline hover:text-ink">Certifications</a>
-      <a href="#contact" class="nav-underline hover:text-ink">Contact</a>
-    </div>
-
-    <div class="hidden lg:block">
-      <a href="#hireme" class="btn-primary text-white text-sm font-semibold px-5 py-2.5 rounded-full inline-flex items-center gap-2">
-        Hire Me <i class="fa-solid fa-arrow-right text-xs"></i>
-      </a>
-    </div>
-
-    <button id="menuBtn" class="lg:hidden text-ink text-xl w-10 h-10 flex items-center justify-center rounded-lg hover:bg-brand-50" aria-label="Toggle menu" aria-expanded="false">
-      <i class="fa-solid fa-bars" id="menuIcon"></i>
-    </button>
-  </nav>
-
-  <!-- Mobile Menu -->
-  <div id="mobileMenu" class="hidden lg:hidden bg-white border-t border-brand-100">
-    <div class="flex flex-col px-6 py-4 gap-1 text-sm font-medium text-inksoft">
-      <a href="#home" class="mobile-link py-2.5 hover:text-brand-600">Home</a>
-      <a href="#about" class="mobile-link py-2.5 hover:text-brand-600">About</a>
-      <a href="#education" class="mobile-link py-2.5 hover:text-brand-600">Education</a>
-      <a href="#skills" class="mobile-link py-2.5 hover:text-brand-600">Skills</a>
-      <a href="#experience" class="mobile-link py-2.5 hover:text-brand-600">Experience</a>
-      <a href="#projects" class="mobile-link py-2.5 hover:text-brand-600">Projects</a>
-      <a href="#certifications" class="mobile-link py-2.5 hover:text-brand-600">Certifications</a>
-      <a href="#contact" class="mobile-link py-2.5 hover:text-brand-600">Contact</a>
-      <a href="#hireme" class="mobile-link mt-2 btn-primary text-white text-center font-semibold px-5 py-2.5 rounded-full">Hire Me</a>
-    </div>
-  </div>
-</header>
+<!-- ================= NAVBAR (rendered by navbar.js) ================= -->
+<div id="navbar-mount"></div>
+<script src="navbar.js"></script>
 
 <!-- ================= HERO ================= -->
 <section id="home" class="relative pt-36 pb-24 px-5 sm:px-8 overflow-hidden dot-field">
@@ -466,8 +435,8 @@
 
       <!-- FindBack -->
       <article class="card-lift reveal group bg-white border border-brand-100 shadow-card hover:shadow-card-hover rounded-2xl overflow-hidden flex flex-col">
-        <div class="aspect-video overflow-hidden bg-brand-50">
-          <img src="findback.png" alt="FindBack project screenshot" class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105">
+        <div class="aspect-video overflow-hidden bg-brand-50 relative" data-slideshow="findback">
+          <img src="findback.png" alt="FindBack project screenshot" class="slide-img active">
         </div>
         <div class="p-6 flex flex-col flex-1">
           <h3 class="font-display font-semibold text-xl text-ink mb-2">FindBack</h3>
@@ -489,8 +458,8 @@
 
       <!-- RentEasy -->
       <article class="card-lift reveal reveal-delay-1 group bg-white border border-brand-100 shadow-card hover:shadow-card-hover rounded-2xl overflow-hidden flex flex-col">
-        <div class="aspect-video overflow-hidden bg-brand-50">
-          <img src="renteasy.png" alt="RentEasy project screenshot" class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105">
+        <div class="aspect-video overflow-hidden bg-brand-50 relative" data-slideshow="renteasy">
+          <img src="renteasy.png" alt="RentEasy project screenshot" class="slide-img active">
         </div>
         <div class="p-6 flex flex-col flex-1">
           <h3 class="font-display font-semibold text-xl text-ink mb-2">RentEasy</h3>
@@ -512,8 +481,8 @@
 
       <!-- TutorHub -->
       <article class="card-lift reveal reveal-delay-2 group bg-white border border-brand-100 shadow-card hover:shadow-card-hover rounded-2xl overflow-hidden flex flex-col">
-        <div class="aspect-video overflow-hidden bg-brand-50">
-          <img src="tutorhub.png" alt="TutorHub project screenshot" class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105">
+        <div class="aspect-video overflow-hidden bg-brand-50 relative" data-slideshow="tutorhub">
+          <img src="tutorhub.png" alt="TutorHub project screenshot" class="slide-img active">
         </div>
         <div class="p-6 flex flex-col flex-1">
           <h3 class="font-display font-semibold text-xl text-ink mb-2">TutorHub</h3>
@@ -670,48 +639,8 @@
   </div>
 </footer>
 
-<script>
-  // Mobile menu
-  const menuBtn = document.getElementById('menuBtn');
-  const mobileMenu = document.getElementById('mobileMenu');
-  const menuIcon = document.getElementById('menuIcon');
-
-  menuBtn.addEventListener('click', () => {
-    mobileMenu.classList.toggle('hidden');
-    const isOpen = !mobileMenu.classList.contains('hidden');
-    menuBtn.setAttribute('aria-expanded', String(isOpen));
-    menuIcon.className = isOpen ? 'fa-solid fa-xmark' : 'fa-solid fa-bars';
-  });
-
-  document.querySelectorAll('.mobile-link').forEach(link => {
-    link.addEventListener('click', () => {
-      mobileMenu.classList.add('hidden');
-      menuIcon.className = 'fa-solid fa-bars';
-    });
-  });
-
-  // Navbar scroll shadow
-  const navbar = document.getElementById('navbar');
-  window.addEventListener('scroll', () => {
-    navbar.classList.toggle('scrolled', window.scrollY > 8);
-  }, { passive: true });
-
-  // Scroll reveal (progressive enhancement — content is visible by default via .show)
-  if ('IntersectionObserver' in window) {
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('show');
-          io.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
-
-    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
-  } else {
-    document.querySelectorAll('.reveal').forEach(el => el.classList.add('show'));
-  }
-</script>
+<script src="project-images.js"></script>
+<script src="index.js"></script>
 
 <!-- CHATBOT (separate file) -->
 <script src="chatbot.js"></script>

@@ -2,6 +2,17 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<script>
+  // Apply saved theme before first paint (prevents a white flash in dark mode)
+  (function () {
+    try {
+      var t = localStorage.getItem('theme');
+      if (t === 'dark' || (!t && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark');
+      }
+    } catch (e) {}
+  })();
+</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Project Details | Nafisha Nowshin Tisha</title>
 
@@ -54,21 +65,13 @@
   .btn-ghost:hover { background: #F5F8FF; border-color: #9BB9FA; transform: translateY(-3px); }
   .grad-text { background: linear-gradient(100deg, #0F2266, #234FE0 60%, #3465EA); -webkit-background-clip: text; background-clip: text; color: transparent; }
 </style>
+<link rel="stylesheet" href="theme.css">
 </head>
 
 <body class="bg-white text-ink antialiased">
 
-<header class="fixed top-0 inset-x-0 z-50 bg-white/85 backdrop-blur-md shadow-[0_1px_0_rgba(15,34,102,0.06)]">
-  <nav class="max-w-6xl mx-auto flex justify-between items-center px-5 sm:px-8 py-4">
-    <a href="index.html#home" class="font-display font-bold text-lg tracking-tight text-ink flex items-center gap-2">
-      <span class="w-8 h-8 rounded-lg bg-gradient-to-br from-brand-600 to-brand-400 text-white flex items-center justify-center text-sm font-display">NT</span>
-      <span>Nafisha<span class="text-brand-600">.</span></span>
-    </a>
-    <a href="index.html#projects" class="btn-ghost border border-brand-200 text-ink text-sm font-semibold px-5 py-2.5 rounded-full inline-flex items-center gap-2">
-      <i class="fa-solid fa-arrow-left text-xs"></i> Back to Projects
-    </a>
-  </nav>
-</header>
+<div id="navbar-mount"></div>
+<script src="navbar.js"></script>
 
 <main id="detail" class="relative pt-32 pb-24 px-5 sm:px-8 dot-field min-h-screen">
   <div class="max-w-5xl mx-auto"></div>
@@ -85,17 +88,13 @@
   <img id="lightboxImg" src="" alt="" class="max-w-full max-h-full rounded-xl shadow-card-hover">
 </div>
 
+<script src="project-images.js"></script>
 <script>
   const projects = {
     findback: {
       name: 'FindBack',
       tagline: 'Lost & Found Platform',
       image: 'findback.png',
-      gallery: [
-        ['findback-1.png', 'Report a lost or found item'],
-        ['findback-2.png', 'Listings and search'],
-        ['findback-3.png', 'Item details and claim flow']
-      ],
       stack: ['Next.js', 'TypeScript', 'Docker', 'Redis', 'Prisma', 'PostgreSQL'],
       description: 'FindBack helps people recover lost belongings and return found items by connecting lost and found reports in one place. Users can post a report, browse and search existing reports, and get matched with the person on the other side. Redis is used for caching and fast lookups, Prisma with PostgreSQL stores structured report data, and Docker keeps the development environment consistent.',
       live: 'https://findback-seven.vercel.app/',
@@ -117,12 +116,6 @@
       name: 'RentEasy',
       tagline: 'Property Rental & Booking Platform',
       image: 'renteasy.png',
-      gallery: [
-        ['renteasy-1.png', 'Property listing and search'],
-        ['renteasy-2.png', 'Property details and booking'],
-        ['renteasy-3.png', 'Owner dashboard with 12-month earnings chart'],
-        ['renteasy-4.png', 'Admin / Tenant dashboard']
-      ],
       stack: ['Next.js', 'React', 'Node.js', 'Express.js', 'MongoDB', 'Firebase Auth', 'JWT', 'Stripe', 'Tailwind CSS'],
       description: 'A full-stack MERN + Next.js rental platform with role-based Tenant, Owner and Admin dashboards. It supports Stripe payments, Firebase authentication, favorites, bookings and reviews, plus an owner analytics dashboard with a 12-month earnings chart.',
       live: 'https://property-rental-client-kappa.vercel.app/',
@@ -144,11 +137,6 @@
       name: 'TutorHub',
       tagline: 'Online Tutoring Platform',
       image: 'tutorhub.png',
-      gallery: [
-        ['tutorhub-1.png', 'Tutor listing'],
-        ['tutorhub-2.png', 'Booking with live slot updates'],
-        ['tutorhub-3.png', 'Student schedule dashboard']
-      ],
       stack: ['Next.js', 'React', 'Tailwind CSS', 'Node.js', 'Express.js', 'MongoDB Atlas', 'JWT'],
       description: 'An online tutoring platform where students can find tutors, book sessions with real-time slot updates, and manage their learning schedules. It uses JWT-protected private routes and a fully responsive interface.',
       live: 'https://mediqueue-fawn.vercel.app',
@@ -168,10 +156,6 @@
     }
   };
 
-  function checkGallery() {
-    const g = document.getElementById('gallery');
-    if (g && !g.querySelector('figure')) g.remove();
-  }
   function openLightbox(src, alt) {
     const lb = document.getElementById('lightbox');
     document.getElementById('lightboxImg').src = src;
@@ -188,6 +172,20 @@
   const p = projects[id];
   const root = document.querySelector('#detail > div');
 
+  // images: cover first, then any non-blank paths from project-images.js
+  let imgs = [];
+  function showImage(btn) {
+    const main = document.getElementById('mainShot');
+    main.src = btn.dataset.src;
+    main.alt = (p ? p.name : '') + ' screenshot ' + btn.dataset.n;
+    document.querySelectorAll('#thumbs .thumb').forEach(t => {
+      const on = t === btn;
+      t.classList.toggle('ring-2', on);
+      t.classList.toggle('ring-brand-500', on);
+      t.classList.toggle('opacity-70', !on);
+    });
+  }
+
   const list = (items, icon) => items.map(i =>
     `<li class="flex gap-3 text-inksoft leading-relaxed"><i class="fa-solid ${icon} text-brand-500 mt-1.5 text-xs"></i><span>${i}</span></li>`
   ).join('');
@@ -200,14 +198,24 @@
     </div>`;
   } else {
     document.title = p.name + ' | Nafisha Nowshin Tisha';
+    imgs = [p.image, ...((window.PROJECT_IMAGES || {})[id] || []).filter(s => s && s.trim())];
     root.innerHTML = `
       <p class="font-mono-ui text-xs text-brand-600 tracking-widest uppercase mb-3">Project Details</p>
       <h1 class="font-display font-extrabold text-4xl sm:text-5xl text-ink"><span class="grad-text">${p.name}</span></h1>
       <p class="font-mono-ui text-brand-600 mt-3">${p.tagline}</p>
 
       <div class="mt-8 rounded-2xl overflow-hidden border border-brand-100 shadow-card-hover bg-white">
-        <img src="${p.image}" alt="${p.name} screenshot" class="w-full h-auto object-cover">
+        <img id="mainShot" src="${imgs[0]}" alt="${p.name} screenshot 1" onclick="openLightbox(this.src, this.alt)" class="w-full h-auto object-cover cursor-zoom-in">
       </div>
+      ${imgs.length > 1 ? `
+      <div class="mt-4 flex gap-3 overflow-x-auto pb-2" id="thumbs">
+        ${imgs.map((src, i) => `
+          <button type="button" data-src="${src}" data-n="${i + 1}" onclick="showImage(this)" aria-label="Show screenshot ${i + 1}"
+                  class="thumb shrink-0 w-28 h-20 sm:w-36 sm:h-24 rounded-xl overflow-hidden border border-brand-150 bg-white transition ${i === 0 ? 'ring-2 ring-brand-500' : 'opacity-70 hover:opacity-100'}">
+            <img src="${src}" alt="" class="w-full h-full object-cover object-top"
+                 onerror="this.closest('button').remove()">
+          </button>`).join('')}
+      </div>` : ''}
 
       <div class="mt-8 flex flex-wrap gap-3">
         <a href="${p.live}" target="_blank" rel="noopener" class="btn-primary text-white text-sm font-semibold px-6 py-3 rounded-full inline-flex items-center gap-2">
@@ -238,19 +246,6 @@
           <ul class="space-y-3 text-sm sm:text-base">${list(p.improvements, 'fa-circle-arrow-up')}</ul>
         </section>
       </div>
-
-      <section id="gallery" class="mt-12">
-        <h2 class="font-display font-semibold text-xl text-ink mb-5 flex items-center gap-2"><i class="fa-solid fa-images text-brand-600"></i> Screenshots</h2>
-        <div class="grid sm:grid-cols-2 gap-6">
-          ${p.gallery.map(([src, cap]) => `
-            <figure class="bg-white border border-brand-100 shadow-card rounded-2xl overflow-hidden">
-              <img src="${src}" alt="${p.name}: ${cap}" loading="lazy" onclick="openLightbox(this.src, this.alt)"
-                   onerror="this.closest('figure').remove(); checkGallery();"
-                   class="w-full h-auto cursor-zoom-in">
-              <figcaption class="px-5 py-3 text-sm text-inksoft border-t border-brand-100">${cap}</figcaption>
-            </figure>`).join('')}
-        </div>
-      </section>
 
       <div class="mt-12 text-center">
         <a href="index.html#projects" class="btn-ghost border border-brand-200 text-ink text-sm font-semibold px-6 py-3 rounded-full inline-flex items-center gap-2">

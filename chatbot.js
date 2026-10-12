@@ -13,7 +13,7 @@
     <!-- Messages -->
     <div id="chatMessages" class="h-72 overflow-y-auto px-3 py-3 space-y-2 text-sm bg-[#F5F8FF]">
       <div class="bg-white border border-[#DCE8FF] text-[#0B1730] px-3 py-2 rounded-lg rounded-bl-none max-w-[85%] shadow-sm">
-        Hi! 👋 I'm a quick FAQ bot for Tisha's portfolio. Ask me about her <b>skills</b>, <b>projects</b> (try "RentEasy", "FinSight" or "TutorHub"), <b>experience</b>, <b>education</b>, or <b>contact</b> info.
+        Hi! 👋 I'm a quick FAQ bot for Tisha's portfolio. Ask me about her <b>skills</b>, <b>projects</b> (try "FindBack", "RentEasy" or "TutorHub"), <b>experience</b>, <b>certifications</b>, <b>education</b>, or <b>contact</b> info.
       </div>
     </div>
 
@@ -22,6 +22,7 @@
       <button class="chip text-xs px-3 py-1 rounded-full border border-[#C6D9FF] text-[#1B3EB8] hover:bg-[#EAF1FF] transition">Skills</button>
       <button class="chip text-xs px-3 py-1 rounded-full border border-[#C6D9FF] text-[#1B3EB8] hover:bg-[#EAF1FF] transition">Projects</button>
       <button class="chip text-xs px-3 py-1 rounded-full border border-[#C6D9FF] text-[#1B3EB8] hover:bg-[#EAF1FF] transition">Experience</button>
+      <button class="chip text-xs px-3 py-1 rounded-full border border-[#C6D9FF] text-[#1B3EB8] hover:bg-[#EAF1FF] transition">Certifications</button>
       <button class="chip text-xs px-3 py-1 rounded-full border border-[#C6D9FF] text-[#1B3EB8] hover:bg-[#EAF1FF] transition">Contact</button>
     </div>
 
@@ -38,33 +39,44 @@
 
   // ---------- 2. FAQ knowledge base ----------
   // Edit this array to add/change what the bot knows about you.
+  // Project-specific entries come first so "findback tech stack" matches the project, not the generic skills answer.
+  const linkCls = "underline font-medium text-[#234FE0] hover:text-[#0F2266]";
+
   const faq = [
     {
-      keys: ['skill', 'tech', 'stack', 'technology', 'language'],
-      answer: "Tisha works with <b>HTML, CSS, JavaScript, TypeScript, React.js, Next.js, Tailwind CSS, shadcn/ui, HeroUI, Node.js, Express.js, MongoDB, Mongoose, PostgreSQL, Prisma, Firebase, Stripe, Recharts, JWT Auth, REST APIs &amp; Git/GitHub</b>."
+      keys: ['findback', 'lost', 'found item', 'lost and found'],
+      answer: "<b>FindBack</b> is a lost &amp; found platform that connects people who lost items with people who found them. Built with <b>Next.js, TypeScript, Docker, Redis, Prisma and PostgreSQL</b>. " +
+              "<a href='project.html?id=findback' class='" + linkCls + "'>Details</a> &middot; " +
+              "<a href='https://findback-seven.vercel.app/' target='_blank' class='" + linkCls + "'>Live</a> &middot; " +
+              "<a href='https://github.com/nowshintisha230/FindBack' target='_blank' class='" + linkCls + "'>Client Repo</a>"
     },
     {
       keys: ['renteasy', 'rental', 'property'],
       answer: "<b>RentEasy</b> is a full-stack MERN + Next.js property rental & booking platform with role-based Tenant/Owner/Admin dashboards, Stripe payments, Firebase auth, favorites, bookings, reviews, and an owner analytics dashboard. " +
-              "<a href='https://property-rental-client-kappa.vercel.app/' target='_blank' class='underline font-medium text-[#234FE0] hover:text-[#0F2266]'>Live</a> &middot; " +
-              "<a href='https://github.com/nowshintisha230/property-rental-client' target='_blank' class='underline font-medium text-[#234FE0] hover:text-[#0F2266]'>Client Repo</a> &middot; " +
-              "<a href='https://github.com/nowshintisha230/property-rental-server' target='_blank' class='underline font-medium text-[#234FE0] hover:text-[#0F2266]'>Server Repo</a>"
-    },
-    {
-      keys: ['finsight', 'expense', 'budget', 'tracker'],
-      answer: "<b>FinSight</b> is a simple, fast expense tracking app built with Next.js, MongoDB and Tailwind CSS — add/edit/delete expenses, filter by date or category, and visualize spending with an interactive pie chart. " +
-              "<a href='https://expense-tracker-iota-wine.vercel.app/' target='_blank' class='underline font-medium text-[#234FE0] hover:text-[#0F2266]'>Live</a>"
+              "<a href='project.html?id=renteasy' class='" + linkCls + "'>Details</a> &middot; " +
+              "<a href='https://property-rental-client-kappa.vercel.app/' target='_blank' class='" + linkCls + "'>Live</a> &middot; " +
+              "<a href='https://github.com/nowshintisha230/property-rental-client' target='_blank' class='" + linkCls + "'>Client Repo</a> &middot; " +
+              "<a href='https://github.com/nowshintisha230/property-rental-server' target='_blank' class='" + linkCls + "'>Server Repo</a>"
     },
     {
       keys: ['tutorhub', 'tutor', 'tutoring'],
       answer: "<b>TutorHub</b> is an online tutoring platform where students can find tutors and book sessions with real-time slot updates, backed by JWT-protected private routes. " +
-              "<a href='https://mediqueue-fawn.vercel.app' target='_blank' class='underline font-medium text-[#234FE0] hover:text-[#0F2266]'>Live</a> &middot; " +
-              "<a href='https://github.com/nowshintisha230/tutorhub' target='_blank' class='underline font-medium text-[#234FE0] hover:text-[#0F2266]'>Client Repo</a> &middot; " +
-              "<a href='https://github.com/nowshintisha230/tutorhub-server' target='_blank' class='underline font-medium text-[#234FE0] hover:text-[#0F2266]'>Server Repo</a>"
+              "<a href='project.html?id=tutorhub' class='" + linkCls + "'>Details</a> &middot; " +
+              "<a href='https://mediqueue-fawn.vercel.app' target='_blank' class='" + linkCls + "'>Live</a> &middot; " +
+              "<a href='https://github.com/nowshintisha230/tutorhub' target='_blank' class='" + linkCls + "'>Client Repo</a> &middot; " +
+              "<a href='https://github.com/nowshintisha230/tutorhub-server' target='_blank' class='" + linkCls + "'>Server Repo</a>"
+    },
+    {
+      keys: ['skill', 'tech', 'stack', 'technology', 'language', 'docker', 'redis'],
+      answer: "Tisha works with <b>HTML, CSS, JavaScript, TypeScript, React.js, Next.js, Tailwind CSS, shadcn/ui, HeroUI, Node.js, Express.js, MongoDB, Mongoose, PostgreSQL, Prisma, Redis, Docker, Firebase, Stripe, Recharts, JWT Auth, REST APIs &amp; Git/GitHub</b>."
     },
     {
       keys: ['project', 'work', 'built', 'made', 'portfolio'],
-      answer: "She has built <b>RentEasy</b> (property rental & booking platform), <b>FinSight</b> (expense tracker with charts) and <b>TutorHub</b> (online tutoring platform). Ask me about any one by name for repo & live links, or check the Projects section!"
+      answer: "She has built <b>FindBack</b> (lost &amp; found platform), <b>RentEasy</b> (property rental & booking platform) and <b>TutorHub</b> (online tutoring platform). Ask me about any one by name for repo & live links, or open <b>View More</b> on a project card in the Projects section for full details!"
+    },
+    {
+      keys: ['certificate', 'certification', 'certified', 'course', 'programming hero', 'bootcamp'],
+      answer: "Tisha holds two certificates: <b>Complete Web Development Course</b> from <b>Programming Hero</b> (HTML, CSS, JavaScript, React.js, Next.js, Node.js, Express.js, MongoDB and AI-powered development), and a <b>MERN Stack Developer Internship</b> certificate from <b>JEVXO</b> with an <b>Outstanding</b> rating. See the Certifications section to view them."
     },
     {
       keys: ['experience', 'intern', 'internship', 'job', 'career', 'company', 'jevxo'],
@@ -77,8 +89,8 @@
     {
       keys: ['contact', 'email', 'reach', 'hire', 'linkedin', 'github', 'connect'],
       answer: "You can reach Tisha via email at <b>nafisatisha230@gmail.com</b>, or find her here: " +
-              "<a href='https://github.com/nowshintisha230' target='_blank' class='underline font-medium text-[#234FE0] hover:text-[#0F2266]'>GitHub <i class=\"fa-brands fa-github\"></i></a> &middot; " +
-              "<a href='https://www.linkedin.com/in/nafishanowshintisha' target='_blank' class='underline font-medium text-[#234FE0] hover:text-[#0F2266]'>LinkedIn <i class=\"fa-brands fa-linkedin\"></i></a>"
+              "<a href='https://github.com/nowshintisha230' target='_blank' class='" + linkCls + "'>GitHub <i class=\"fa-brands fa-github\"></i></a> &middot; " +
+              "<a href='https://www.linkedin.com/in/nafishanowshintisha' target='_blank' class='" + linkCls + "'>LinkedIn <i class=\"fa-brands fa-linkedin\"></i></a>"
     },
     {
       keys: ['resume', 'cv'],
@@ -90,11 +102,11 @@
     },
     {
       keys: ['hi', 'hello', 'hey'],
-      answer: "Hey there! 👋 Ask me about Tisha's skills, projects (RentEasy, FinSight, TutorHub), experience, education, or contact info."
+      answer: "Hey there! 👋 Ask me about Tisha's skills, projects (FindBack, RentEasy, TutorHub), experience, certifications, education, or contact info."
     }
   ];
 
-  const fallback = "I'm not sure about that 🤔 Try asking about her <b>skills</b>, <b>projects</b>, <b>experience</b>, <b>education</b>, or <b>contact</b> info.";
+  const fallback = "I'm not sure about that 🤔 Try asking about her <b>skills</b>, <b>projects</b>, <b>experience</b>, <b>certifications</b>, <b>education</b>, or <b>contact</b> info.";
 
   function getAnswer(text) {
     const lower = text.toLowerCase();
