@@ -7,9 +7,7 @@ I am a Computer Science and Engineering (CSE) student passionate about building 
 
 ## 🌐 Live Portfolio
 
-🔗 **Portfolio Website:** [[ https://nowshintisha230.github.io/My-Portfolio/
-](https://nowshintisha230.github.io/Portfolio-of--Developer-Tisha/)](https://portfoliodevelopertisha.vercel.app/)
-
+🔗 **Portfolio Website:** https://portfoliodevelopertisha.vercel.app/
 ## ✨ Features
 
 - 🏠 **Home** — Introduction and professional overview.
