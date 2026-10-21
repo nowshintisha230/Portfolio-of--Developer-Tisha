@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <script>
-  // Apply saved theme before first paint (prevents a white flash in dark mode)
+  
   (function () {
     try {
       var t = localStorage.getItem('theme');
@@ -91,25 +91,27 @@
 <script src="project-images.js"></script>
 <script>
   const projects = {
-    findback: {
-      name: 'FindBack',
-      tagline: 'Lost & Found Platform',
-      image: 'findback.png',
-      stack: ['Next.js', 'TypeScript', 'Docker', 'Redis', 'Prisma', 'PostgreSQL'],
-      description: 'FindBack helps people recover lost belongings and return found items by connecting lost and found reports in one place. Users can post a report, browse and search existing reports, and get matched with the person on the other side. Redis is used for caching and fast lookups, Prisma with PostgreSQL stores structured report data, and Docker keeps the development environment consistent.',
-      live: 'https://findback-seven.vercel.app/',
-      github: 'https://github.com/nowshintisha230/FindBack',
+    immunicare: {
+      name: 'ImmuniCare',
+      tagline: 'Vaccination Tracker for Parents in Bangladesh',
+      image: 'immunicare.png',
+      stack: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'shadcn/ui', 'PostgreSQL', 'Prisma', 'Neon', 'Firebase Auth', 'Nodemailer', 'Vercel Cron', 'Zod', 'Docker'],
+      description: 'ImmuniCare is a bilingual (Bangla / English) web app that helps parents in Bangladesh track their childrens vaccinations. It builds a personal schedule from each childs date of birth based on the government EPI programme plus additional private vaccines, flags doses that are due or overdue, sends email reminders, and keeps a record that can be downloaded as a PDF. It also includes public vaccine detail pages, a parent dashboard with progress and filters, smart in-app notifications, parent feedback, and a free vaccine assistant with emergency detection.',
+      live: 'https://immuni-care.vercel.app/',
+      github: 'https://github.com/nowshintisha230/ImmuniCare',
       challenges: [
-        'Designing a relational schema in Prisma/PostgreSQL that links lost reports with found reports cleanly.',
-        'Deciding what to cache in Redis and when to invalidate it so listings never show stale data.',
-        'Containerizing the app with Docker so the database, cache and app run the same on every machine.',
-        'Keeping strict TypeScript types consistent between the API layer and the UI.'
+        'Calculating each dose status (completed, due, upcoming, missed) from the date of birth using Bangladesh time, including age windows such as Rotavirus, and reusing the same logic for the dashboard and the emails.',
+        'Sending free, reliable email reminders with the Vercel Hobby cron limit of once per day: I claimed every reminder in a ReminderLog table so duplicate runs never send the same email twice, and capped each run to stay within time limits.',
+        'Generating a vaccination record PDF with correct Bangla text, since client-side PDF libraries often break Bangla. I solved it with a print-optimised report page and the browsers Save as PDF.',
+        'Server-side authentication with Firebase and secure session cookies, including pinning Firebase Admin to v13 to fix an ERR_REQUIRE_ESM crash on Vercel.',
+        'Building a full bilingual experience across content, dates and UI, and keeping medical information safe with disclaimers and an emergency check in the assistant.'
       ],
       improvements: [
-        'Smarter automatic matching between lost and found reports (keywords, category, location, date).',
-        'Real-time notifications by email or push when a possible match is found.',
-        'Image upload with moderation and a verified claim process for item owners.',
-        'Map-based search and an admin dashboard for managing reports.'
+        'Track yearly influenza boosters, not only the first two doses.',
+        'Add SMS reminders and a higher-limit email provider so more parents can be reminded at an exact time.',
+        'Use the already configured Redis for caching and rate limiting.',
+        'Let parents choose to receive reminders for optional private vaccines.',
+        'Store time of birth and add push notifications for even faster alerts.'
       ]
     },
     renteasy: {

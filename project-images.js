@@ -1,10 +1,10 @@
 
 window.PROJECT_IMAGES = {
-  findback: [
-    'findback-1.png',
-  'findback-2.png',
-  'findback-3.png',
-    'findback-4.png',
+  immunicare: [
+    'immunicare-1.png',
+  'immunicare-2.png',
+  'immunicare-3.png',
+    'immunicare-4.png',
   ],
   renteasy: [
     'renteasy-1.png',

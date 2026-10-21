@@ -13,7 +13,7 @@
     <!-- Messages -->
     <div id="chatMessages" class="h-72 overflow-y-auto px-3 py-3 space-y-2 text-sm bg-[#F5F8FF]">
       <div class="bg-white border border-[#DCE8FF] text-[#0B1730] px-3 py-2 rounded-lg rounded-bl-none max-w-[85%] shadow-sm">
-        Hi! 👋 I'm a quick FAQ bot for Tisha's portfolio. Ask me about her <b>skills</b>, <b>projects</b> (try "FindBack", "RentEasy" or "TutorHub"), <b>experience</b>, <b>certifications</b>, <b>education</b>, or <b>contact</b> info.
+        Hi! 👋 I'm a quick FAQ bot for Tisha's portfolio. Ask me about her <b>skills</b>, <b>projects</b> (try "", "RentEasy" or "TutorHub"), <b>experience</b>, <b>certifications</b>, <b>education</b>, or <b>contact</b> info.
       </div>
     </div>
 
@@ -37,18 +37,16 @@
   </div>
   `;
 
-  // ---------- 2. FAQ knowledge base ----------
-  // Edit this array to add/change what the bot knows about you.
-  // Project-specific entries come first so "findback tech stack" matches the project, not the generic skills answer.
+  
   const linkCls = "underline font-medium text-[#234FE0] hover:text-[#0F2266]";
 
   const faq = [
-    {
-      keys: ['findback', 'lost', 'found item', 'lost and found'],
-      answer: "<b>FindBack</b> is a lost &amp; found platform that connects people who lost items with people who found them. Built with <b>Next.js, TypeScript, Docker, Redis, Prisma and PostgreSQL</b>. " +
-              "<a href='project.html?id=findback' class='" + linkCls + "'>Details</a> &middot; " +
-              "<a href='https://findback-seven.vercel.app/' target='_blank' class='" + linkCls + "'>Live</a> &middot; " +
-              "<a href='https://github.com/nowshintisha230/FindBack' target='_blank' class='" + linkCls + "'>Client Repo</a>"
+   {
+      keys: ['immunicare', 'vaccine', 'vaccination', 'immunization', 'vaccine tracker', 'health'],
+      answer: "<b>ImmuniCare</b> is a bilingual (Bangla / English) web app that helps parents in Bangladesh track their children's vaccinations. It builds a personal schedule from each child's date of birth, sends email reminders, and keeps a record that can be downloaded as a PDF. Built with <b>Next.js, TypeScript, Prisma, PostgreSQL, Firebase and Docker</b>. " +
+              "<a href='project.html?id=immunicare' class='" + linkCls + "'>Details</a> &middot; " +
+              "<a href='https://immuni-care.vercel.app/' target='_blank' class='" + linkCls + "'>Live</a> &middot; " +
+              "<a href='https://github.com/nowshintisha230/ImmuniCare' target='_blank' class='" + linkCls + "'>Repo</a>"
     },
     {
       keys: ['renteasy', 'rental', 'property'],
@@ -72,7 +70,7 @@
     },
     {
       keys: ['project', 'work', 'built', 'made', 'portfolio'],
-      answer: "She has built <b>FindBack</b> (lost &amp; found platform), <b>RentEasy</b> (property rental & booking platform) and <b>TutorHub</b> (online tutoring platform). Ask me about any one by name for repo & live links, or open <b>View More</b> on a project card in the Projects section for full details!"
+      answer: "She has built <b>ImmuniCare</b> (Smart Child Vaccination System), <b>RentEasy</b> (property rental & booking platform) and <b>TutorHub</b> (online tutoring platform). Ask me about any one by name for repo & live links, or open <b>View More</b> on a project card in the Projects section for full details!"
     },
     {
       keys: ['certificate', 'certification', 'certified', 'course', 'programming hero', 'bootcamp'],
@@ -102,7 +100,7 @@
     },
     {
       keys: ['hi', 'hello', 'hey'],
-      answer: "Hey there! 👋 Ask me about Tisha's skills, projects (FindBack, RentEasy, TutorHub), experience, certifications, education, or contact info."
+      answer: "Hey there! 👋 Ask me about Tisha's skills, projects (ImmuniCare, RentEasy, TutorHub), experience, certifications, education, or contact info."
     }
   ];
 
